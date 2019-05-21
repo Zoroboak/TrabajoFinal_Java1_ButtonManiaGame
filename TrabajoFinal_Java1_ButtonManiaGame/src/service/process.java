@@ -28,6 +28,17 @@ public class process {
 		
 		return matriz;
 	}
+	
+	public static int[][] generarMatriz(int[][] matriz) {
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz.length; j++) {
+				matriz[i][j] = 0;
+			}
+		}
+		
+		return matriz;
+	}
 
 	/*
 	 * Entradas
@@ -41,6 +52,8 @@ public class process {
 	 */
 	
 	public static int[][] generarPartida(int[][] matriz, int nivel) {
+		
+		generarMatriz(matriz);
 		
 		int pos1 = 0, pos2 = 0;
 		System.out.println(nivel);
