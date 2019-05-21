@@ -7,7 +7,7 @@ public class console {
 	public static void main(String[] args) {
 		
 		//Declaraciónes del main
-		int nivel =  5;  //por defecto nivel normal [1-9]
+		int nivel =  1;  //por defecto nivel normal [1-9]
 		int[][] matriz = service.process.generarMatriz(); //Generar matriz todo a 0 por defecto 
 		String jugador = "Player";
 
@@ -18,7 +18,7 @@ public class console {
 		/* opcmenu = 1 //Se esta recomenzando
 		   opcmenu = 2 //Se ha iniciado una nueva partida
 		   opcmenu = 3 //Se ha solicitado la calificación
-		   opcmenu = 4 //Se ha solicitado la salida */
+		   opcmenu = 4 //Se ha solicitado cambio de nivel */
 		
 
 		//Variables auxiliares
@@ -35,14 +35,12 @@ public class console {
 			cont = 0;
 			//Compruebo que tipo de partida es
 			if(opcmenu==2){ //Si es una nueva partida: 
-				matrizTablero = service.process.generarPartida(matriz, nivel);
-				//matrizTableroCopia = matrizTablero.clone();
-				for (int i = 0; i < matrizTableroCopia.length; i++) {
-					for (int j = 0; j < matrizTableroCopia.length; j++) {
-						matrizTableroCopia[i][j] = matrizTablero[i][j];
-					}
-				}
+				matrizTablero = service.process.generarMatriz();
+				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
 				
+			}else if(opcmenu==4) {
+				matrizTablero = service.process.generarMatriz();
+				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
 			}else if(opcmenu==1){ //Si se esta recomenzando: 
 				System.out.println("Recomenzando");
 				//matrizTablero = matrizTableroCopia.clone();
@@ -138,10 +136,9 @@ public class console {
 			}
 
 			if(opcmenu==04){
+				opcmenu = 4;
 				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más dificil",3);
-
 				nivel=opc; 
-
 				System.out.println("Se ha cambiado a nivel "+nivel+", correctamente");
 			}
 
@@ -158,6 +155,18 @@ public class console {
 		}while(opcmenu!=-2);
 		
 	
+	}
+
+	private static int[][] generarNuevaPartida(int nivel, int[][] matriz, int[][] matrizTableroCopia) {
+		int[][] matrizTablero;
+		matrizTablero = service.process.generarPartida(matriz, nivel);
+		//matrizTableroCopia = matrizTablero.clone();
+		for (int i = 0; i < matrizTableroCopia.length; i++) {
+			for (int j = 0; j < matrizTableroCopia.length; j++) {
+				matrizTableroCopia[i][j] = matrizTablero[i][j];
+			}
+		}
+		return matrizTablero;
 	}
 
 	private static void guardarCalificacionTablero(float[] calificacionNivel) {
