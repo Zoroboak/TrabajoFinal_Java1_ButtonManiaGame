@@ -29,7 +29,7 @@ public class process {
 		return matriz;
 	}
 	
-	public static int[][] generarMatriz(int[][] matriz) {
+	protected static int[][] generarMatriz(int[][] matriz) {
 		
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz.length; j++) {
