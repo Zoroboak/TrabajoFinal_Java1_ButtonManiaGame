@@ -182,7 +182,7 @@ public class process {
 		//System.out.println("fecha actual: "+fecha);
 		
 		
-		float puntuacion = 0;
+		float puntuacion = 1;
 		String puntuacionString = "";
 		
 		for (int i = 0; i < calificacionNivel.length; i++) {
