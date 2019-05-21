@@ -59,7 +59,6 @@ public class console {
 				//Mostramos tablero
 				opc = interfaz(matrizTablero, nivel, cont);//debe validar la entrada (opc menu o jugada valida)
 				
-				System.out.println("Prueba de control: "+opc);
 				//Comprobamos si el caracter introducido es entrada de menu
 				if ((opc==1)||(opc==2)||(opc==3)||(opc==4)||(opc==-2)){
 					menu=true;
@@ -106,16 +105,21 @@ public class console {
 				puntuacion = (nivel*3)/cont;
 				
 				if(cont<(nivel*3)) {
-					System.out.println("Extraordinariamente  bien:  Hecho  en  "+cont+"  golpes”,");
+					System.out.println("Extraordinariamente  bien:  Hecho  en  "+cont+"  golpes");
+					System.out.println();
 				}else if(cont==(nivel*3)) {
-					System.out.println("Perfecto.  Hecho  en "+cont+" golpes”");
+					System.out.println("Perfecto.  Hecho  en "+cont+" golpes");
+					System.out.println();
 				}else if(cont>(nivel*3)){
 					System.out.println("Echo  en "+cont+" golpes");
+					System.out.println();
 					
 				}
 				
 				System.out.println("¡Felicitaciones! Terminaste el tablero en "+cont+" veces");
 				System.out.println("Tu calificación en este nivel es de "+puntuacion+" puntos");
+				System.out.println();
+				System.out.println();
 
 				calificacionNivel[nivel] = puntuacion;
 
@@ -140,6 +144,7 @@ public class console {
 				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más dificil",3);
 				nivel=opc; 
 				System.out.println("Se ha cambiado a nivel "+nivel+", correctamente");
+				System.out.println();
 			}
 
 			if(opcmenu==-2){

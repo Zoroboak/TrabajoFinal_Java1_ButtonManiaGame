@@ -29,7 +29,7 @@ public class process {
 		return matriz;
 	}
 	
-	protected static int[][] generarMatriz(int[][] matriz) {
+	private static int[][] generarMatriz(int[][] matriz) {
 		
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz.length; j++) {
@@ -56,10 +56,10 @@ public class process {
 		generarMatriz(matriz);
 		
 		int pos1 = 0, pos2 = 0;
-		System.out.println(nivel);
+		//System.out.println(nivel);
 		int golpes = nivel * 3;
 		for (int i = 0; i < golpes; i++) {
-			System.out.println("Generando jugada inversa "+i);
+			//System.out.println("Generando jugada inversa "+i);
 			
 			pos1 = (int) ((Math.random()*6)+1);
 			pos2 = (int) ((Math.random()*6)+1);
