@@ -43,8 +43,10 @@ public class process {
 	public static int[][] generarPartida(int[][] matriz, int nivel) {
 		
 		int pos1 = 0, pos2 = 0;
+		System.out.println(nivel);
 		int golpes = nivel * 3;
 		for (int i = 0; i < golpes; i++) {
+			System.out.println("Generando jugada inversa "+i);
 			
 			pos1 = (int) ((Math.random()*6)+1);
 			pos2 = (int) ((Math.random()*6)+1);

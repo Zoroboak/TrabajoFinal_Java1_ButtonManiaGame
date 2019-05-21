@@ -79,6 +79,7 @@ public class console {
 						break;
 
 						case 4: //Cambiar Nivel
+							guardarCalificacionTablero(calificacionNivel);
 						opcmenu = 4;
 						break;
 						
@@ -105,6 +106,16 @@ public class console {
 			//Victoria 
 			if(victoria==true){
 				puntuacion = (nivel*3)/cont;
+				
+				if(cont<(nivel*3)) {
+					System.out.println("Extraordinariamente  bien:  Hecho  en  "+cont+"  golpes”,");
+				}else if(cont==(nivel*3)) {
+					System.out.println("Perfecto.  Hecho  en "+cont+" golpes”");
+				}else if(cont>(nivel*3)){
+					System.out.println("Echo  en "+cont+" golpes");
+					
+				}
+				
 				System.out.println("¡Felicitaciones! Terminaste el tablero en "+cont+" veces");
 				System.out.println("Tu calificación en este nivel es de "+puntuacion+" puntos");
 
@@ -135,26 +146,33 @@ public class console {
 			}
 
 			if(opcmenu==-2){
-				try {
-					System.out.println("Saliendo del juego");
-					opc = getDato("¿Quieres guardar tus calificaciones?  (1 para Si, 0 para No) ",2);
-					if(opc==1){
-						jugador = getDato("Introduce tu nombre: ");
-						service.process.guardarCalificaciones(jugador, calificacionNivel);
-						System.out.println("Se ha guardado la partida correctamente");
-					}
-					System.out.println("Gracias por Jugar :D");
-					System.out.println();
-					System.out.println("Juego cerrado.");
-					
-				}catch (Exception e) {
-					e.printStackTrace();
-				}
+				System.out.println("Saliendo del juego");
+				
+				guardarCalificacionTablero(calificacionNivel);
+				
+				System.out.println("Gracias por Jugar :D");
+				System.out.println();
+				System.out.println("Juego cerrado.");
 			}
 			
 		}while(opcmenu!=-2);
 		
 	
+	}
+
+	private static void guardarCalificacionTablero(float[] calificacionNivel) {
+		String jugador;
+		int opc;
+		try {
+			opc = getDato("¿Quieres guardar tus calificaciones?  (1 para Si, 0 para No) ",2);
+			if(opc==1){
+				jugador = getDato("Introduce tu nombre: ");
+				service.process.guardarCalificaciones(jugador, calificacionNivel);
+				System.out.println("Se ha guardado la partida correctamente");
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// Metodo que devuelve el string introducido por el usuario en la consola
@@ -342,11 +360,11 @@ public class console {
 		}
 		System.out.println("|                   F +-----------------------+                             |");
 		System.out.println("|                                                                           |");
-		System.out.println("| Nivel del Juego: "+nivel+" ("+(nivel*3)+" golpes)        Golpres realizados: "+cont);
+		System.out.println("| Nivel del Juego: "+nivel+" ("+(nivel*3)+" golpes)        Golpes realizados: "+cont);
 		System.out.println("|                                                                           |");
 		System.out.println("+---------------------------------------------------------------------------+");
 		
-		int aux = getDato("Introduce jugada u opción del menu [01-04][11-66]: ",1);
+		int aux = getDato("Introduce jugada u opción del menu: ",1);
 		
 		return aux;
 	}
