@@ -140,7 +140,7 @@ public class console {
 				
 				
 				
-				System.out.println("�Felicitaciones! Terminaste el tablero en "+cont+" veces");
+				System.out.println("�Felicitaciones! Terminaste el tablero en "+cont+" golpes");
 				System.out.println("Tu calificaci�n en este nivel es de "+puntuacion+" puntos");
 				System.out.println();
 				System.out.println();
