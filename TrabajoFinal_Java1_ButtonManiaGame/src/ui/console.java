@@ -47,7 +47,7 @@ public class console {
 				if(cont!=0) {
 					num_partidas[nivel]++;
 					puntuacion=0.5f;
-					calificacionNivel[nivel]=(calificacionNivel[nivel]+puntuacion)/num_partidas[nivel];
+					calificacionNivel[nivel] +=puntuacion;
 				}
 				matrizTablero = service.process.generarMatriz(); 
 				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
@@ -145,14 +145,16 @@ public class console {
 				System.out.println();
 				System.out.println();
 				num_partidas[nivel]++;
-				calificacionNivel[nivel] = (calificacionNivel[nivel]+puntuacion)/num_partidas[nivel];
+				
+				calificacionNivel[nivel] +=puntuacion;
+				
 				cont=0;
 				
 				opc = getDato("�Quieres Jugar otro Tablero? (1 para Si, 0 para No)",2);
 				if(opc==1){
 					opcmenu=2; //nuevo tablero
 				}else if(opc==2){
-					opcmenu=4; //salir
+					opcmenu=-2; //salir
 				}
 				
 			}
@@ -177,7 +179,7 @@ public class console {
 				if(cont!=0) {
 					num_partidas[nivel]++;
 					puntuacion=0.5f;
-					calificacionNivel[nivel] = (calificacionNivel[nivel]+puntuacion)/num_partidas[nivel];
+					calificacionNivel[nivel] +=puntuacion;
 				}
 				//puntuacion = (float) 133.00000000;
 				
@@ -194,7 +196,14 @@ public class console {
 				if(cont!=0) {
 					num_partidas[nivel]++;
 					puntuacion=0.5f;
-					calificacionNivel[nivel] = (calificacionNivel[nivel]+puntuacion)/num_partidas[nivel];
+					calificacionNivel[nivel] +=puntuacion;
+				}
+				
+				
+				for(int i=0; i<8; i++) {
+					
+					calificacionNivel[i]/=num_partidas[i];
+					
 				}
 				
 				System.out.println("Saliendo del juego");

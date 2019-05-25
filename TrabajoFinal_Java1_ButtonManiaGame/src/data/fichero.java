@@ -19,7 +19,7 @@ public class fichero {
 		
 		
 		try {
-			fw=new FileWriter(nombrefichero, true);
+			fw=new FileWriter(nombrefichero,true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
