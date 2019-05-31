@@ -10,9 +10,9 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class console {
-	
+	public static Scanner sc= new Scanner (System.in);
 	public static void main(String[] args) {
-		Scanner sc= new Scanner (System.in);
+		
 		//Declaraci�nes del main
 		int nivel =  5;  //por defecto nivel normal [1-9]
 		int[][] matriz = service.process.generarMatriz(); //Generar matriz todo a 0 por defecto 
@@ -280,7 +280,7 @@ public class console {
 		//El metodo devuelve el string introducido por el usuario en la consola
 
 		//Declaro el objeto Scanner
-		Scanner t = new Scanner(System.in);
+		
 		boolean v = true;
 		String auxs = null;
 		
@@ -292,7 +292,7 @@ public class console {
 				//Mostrar texto pasado por parametro
 				System.out.println(string);
 				//Pido una Palabra entre 3 y 15 caracteres
-				auxs = t.next();
+				auxs = sc.next();
 				//Si el rango no es correcto, repetimos el while
 				if(auxs.length()<3||auxs.length()>15) {
 					System.out.println("Debes introducir un nombre entre 3 y 15 caracteres");
@@ -309,7 +309,7 @@ public class console {
 			}
 			catch(Exception e){
 				System.out.println("¡La palabra introducida no es valida!");
-				t.next();
+				sc.next();
 				v=false;
 			}
 		}while(!v);
@@ -338,7 +338,7 @@ public class console {
 		 * */
 		
 		//Declaro el objeto Scanner
-		Scanner n = new Scanner(System.in);
+	
 		boolean v = true;
 		String auxs = null;
 		char auxc = '0';
@@ -354,7 +354,7 @@ public class console {
 					v = false;
 					//Mostrar texto pasado por parametro
 					System.out.println(string);
-					aux = n.nextInt();
+					aux = sc.nextInt();
 					if(aux<=4&&aux>=1) {
 						//Rango Correcto
 						v = true;
@@ -370,7 +370,7 @@ public class console {
 					}
 				}catch (Exception e) {
 					System.out.println("¡El caracter introducido no es valido!");
-					n.next();
+					sc.next();
 					v=false;
 				}
 			} while (!v);
@@ -382,14 +382,14 @@ public class console {
 					v = true;
 					//Mostrar texto pasado por parametro
 					System.out.println(string);
-					aux = n.nextInt();
+					aux = sc.nextInt();
 					if(aux>1||aux<0) {
 						v = false; 
 						System.out.println("Introduce un 1 para marcar SI o un 0 para marcar NO");
 					}
 				}catch (Exception e) {
 					System.out.println("¡El caracter introducido no es valido!");
-					n.next();
+					sc.next();
 					v=false;
 				}
 			} while (!v);
@@ -404,14 +404,14 @@ public class console {
 					System.out.println(string);
 					
 					//Pido una Palabra y me quedo con la primera letra
-					auxs = n.next();
+					auxs = sc.next();
 					auxc = auxs.charAt(0);
 					
 					//Si el rango no es correcto, repetimos el while
 					if(auxc<49||auxc>57) {
 						System.out.println("¡Número fuera de rango! Debes introducir un nivel en el rango [1-9]");
 						v=false;
-						n.next();
+						sc.next();
 					}
 					
 					//Nos aseguramos que el valor de auxs sea solo un caracter
@@ -419,7 +419,7 @@ public class console {
 				}
 				catch(Exception e){
 					System.out.println("¡El número introducido no es valido!!");
-					n.next();
+					sc.next();
 					v=false;
 				}
 			}while(!v);
