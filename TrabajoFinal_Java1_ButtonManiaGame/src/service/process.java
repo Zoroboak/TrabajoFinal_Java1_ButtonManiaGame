@@ -1,6 +1,6 @@
-/**/
-/**/
-/**/
+/*Andrés Valdearcos Trenas*/
+/*Pedro Daniel Pérez Sánchez*/
+/*Elías Prieto Parrilla*/
 /**/
 
 package service;
@@ -286,7 +286,7 @@ public class process {
 		}
 		
 		puntuacionString = 
-				"Puntuaci�n: "+formateador.format(puntuacion)+"; "+
+				"Puntuación: "+formateador.format(puntuacion)+"; "+
 				"Nivel 1: "+formateador.format(calificacionNivel[1])+"; "+
 				"Nivel 2: "+formateador.format(calificacionNivel[2])+"; "+
 				"Nivel 3: "+formateador.format(calificacionNivel[3])+"; "+

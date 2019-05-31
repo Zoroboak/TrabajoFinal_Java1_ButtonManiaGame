@@ -1,7 +1,7 @@
-/**/
-/**/
-/**/
-/**/
+/*Andrés Valdearcos Trenas*/
+/*Pedro Daniel Pérez Sánchez*/
+/*Elías Prieto Parrilla*/
+/*David*/
 
 
 package ui;
@@ -143,8 +143,8 @@ public class console {
 				
 				
 				
-				System.out.println("�Felicidades! Terminaste el tablero en "+cont+" golpes");
-				System.out.println("Tu calificaci�n en este nivel es de "+puntuacion+" puntos");
+				System.out.println("¡Felicidades! Terminaste el tablero en "+cont+" golpes");
+				System.out.println("Tu calificación en este nivel es de "+puntuacion+" puntos");
 				System.out.println();
 				System.out.println();
 			
@@ -152,7 +152,7 @@ public class console {
 				
 				cont=0;
 				
-				opc = getDato("�Quieres Jugar otro Tablero? (1 para Si, 0 para No)",2);
+				opc = getDato("¿Quieres jugar otro tablero? (1 para Si, 0 para No)",2);
 				if(opc==1){
 					opcmenu=2; //nuevo tablero
 				}else if(opc==0){
@@ -173,7 +173,7 @@ public class console {
 				System.out.println("| 6- Difícil (18 golpes): "+calificacionNivel[6]+"                                               |");
 				System.out.println("| 7- Puto amo (21 golpes): "+calificacionNivel[7]+"                                              |");
 				System.out.println("| 8- Imposible (24 golpes): "+calificacionNivel[8]+"                                             |");
-				System.out.println("| 9- Exámenes de Alejandro (27 golpes): "+calificacionNivel[9]+"                                 |");
+				System.out.println("| 9- Diez en progra (27 golpes): "+calificacionNivel[9]+"                                 |");
 				System.out.println("|                                                                           |");
 				System.out.print("| ¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No ):              |");
 				int op =0;
@@ -181,7 +181,7 @@ public class console {
 					op= sc.nextInt();
 				}
 				catch(Exception e) {
-					System.out.println("No se puede introducir otra cosa que no sea un numero.");
+					System.out.println("No se puede introducir otra cosa que no sea un número.");
 					
 					op =0;
 				}
@@ -192,7 +192,7 @@ public class console {
 					service.process.borrarCalificaciones(calificacionNivel);
 				}
 				else {
-					System.out.println("El numero solamente puede ser un 0 o un 1. Introduzca de nuevo: ");
+					System.out.println("El número solamente puede ser un 0 o un 1. Introduzca de nuevo: ");
 					op= sc.nextInt();
 				}
 				System.out.println();
@@ -201,13 +201,7 @@ public class console {
 				
 			}
 
-			
-			//en estas hay que cambiarlo.
-			//en estas hay que cambiarlo.
-			//en estas hay que cambiarlo.
-			//en estas hay que cambiarlo.
-			//en estas hay que cambiarlo.
-			//en estas hay que cambiarlo.
+		
 			if(opcmenu==4){
 				
 				if(cont!=0) {
@@ -221,7 +215,7 @@ public class console {
 				
 				
 				opcmenu = 4;
-				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, m�s dificil",3);
+				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil",3);
 				nivel=opc; 
 				System.out.println("Se ha cambiado a nivel "+nivel+", correctamente");
 				System.out.println();
@@ -237,8 +231,7 @@ public class console {
 					
 				}
 				
-				
-				
+
 				
 				System.out.println("Saliendo del juego");
 				
@@ -315,7 +308,7 @@ public class console {
 				}
 			}
 			catch(Exception e){
-				System.out.println("�La palabra introducida no es valida!");
+				System.out.println("¡La palabra introducida no es valida!");
 				t.next();
 				v=false;
 			}
@@ -373,10 +366,10 @@ public class console {
 						v = true;
 					}else {
 						v = false; 
-						System.out.println("�Opci�n fuera de rango!");
+						System.out.println("¡Opción fuera de rango!");
 					}
 				}catch (Exception e) {
-					System.out.println("�El caracter introducido no es valido!");
+					System.out.println("¡El caracter introducido no es valido!");
 					n.next();
 					v=false;
 				}
@@ -395,7 +388,7 @@ public class console {
 						System.out.println("Introduce un 1 para marcar SI o un 0 para marcar NO");
 					}
 				}catch (Exception e) {
-					System.out.println("�El caracter introducido no es valido!");
+					System.out.println("¡El caracter introducido no es valido!");
 					n.next();
 					v=false;
 				}
@@ -416,7 +409,7 @@ public class console {
 					
 					//Si el rango no es correcto, repetimos el while
 					if(auxc<49||auxc>57) {
-						System.out.println("�Numero fuera de rango! Debes introducir un nivel en el rango [1-9]");
+						System.out.println("¡Número fuera de rango! Debes introducir un nivel en el rango [1-9]");
 						v=false;
 						n.next();
 					}
@@ -425,7 +418,7 @@ public class console {
 					auxs = ""+auxc;
 				}
 				catch(Exception e){
-					System.out.println("�El numero introducido no es valido!!");
+					System.out.println("¡El número introducido no es valido!!");
 					n.next();
 					v=false;
 				}
@@ -449,14 +442,14 @@ public class console {
 		
 		System.out.println();
 		System.out.println();
-		System.out.println("+---------------------------------------------------------------------------+");
-		System.out.println("| Recomenzar(01) -Nuevo(02) -Calificaci�n(03) -Cambiar Nivel(04) -Salir(-2) |");
-		System.out.println("|                                                                           |");
-		System.out.println("| Un golpe decrementar� el valor de esa casilla en 1, y tambi�n los         |");
-		System.out.println("| valores de sus 4 vecinas. Objetivo: Dejar todas las casillas en '0'       |");
-		System.out.println("|                                                                           |");
-		System.out.println("|                     C 1   2   3   4   5   6 C                             |");
-		System.out.println("|                   F +-----------------------+                             |");
+		System.out.println("+----------------------------------------------------------------------------+");
+		System.out.println("| Recomenzar(01)  Nuevo(02)  Calificación(03)  Cambiar Nivel(04)  Salir(0-2) |");
+		System.out.println("|                                                                            |");
+		System.out.println("| Un golpe decrementar el valor de esa casilla en 1, y también los           |");
+		System.out.println("| valores de sus 4 vecinas. Objetivo: Dejar todas las casillas en '0'        |");
+		System.out.println("|                                                                            |");
+		System.out.println("|                     C 1   2   3   4   5   6 C                              |");
+		System.out.println("|                   F +-----------------------+                              |");
 		for (int i = 1; i <= 6; i++) {
 			System.out.println("|                   "+i
 					+ " | "+matrizTablero[i][1]
@@ -465,21 +458,21 @@ public class console {
 					+ " | "+matrizTablero[i][4]
 					+ " | "+matrizTablero[i][5]
 					+ " | "+matrizTablero[i][6]
-					+ " |                             |");
+					+ " |                              |");
 		}
-		System.out.println("|                   F +-----------------------+                             |");
-		System.out.println("|                                                                           |");
-		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+cal_level[nivel]+"  ");
-		System.out.println("|                                                                           |");
-		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna):         |");	         
-		System.out.println("|                                                                           |");
-		System.out.println("+---------------------------------------------------------------------------+");
+		System.out.println("|                   F +-----------------------+                              |");
+		System.out.println("|                                                                            |");
+		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"    |");
+		System.out.println("|                                                                            |");
+		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna):          |");	         
+		System.out.println("|                                                                            |");
+		System.out.println("+----------------------------------------------------------------------------+");
 		
 
 		int aux=0;
 		
 		if(verdadero==true) {
-			aux = getDato("Introduce jugada u opci�n del menu: ",1);
+			aux = getDato("Introduce jugada u opción del menú: ",1);
 		}
 		
 		return aux;
@@ -507,7 +500,7 @@ public class console {
 		else if (level ==8)
 			nombre_nivel = "Imposible (24 golpes)";
 		else if (level ==9)
-			nombre_nivel = "Exámenes de Alejandro (27 golpes)";
+			nombre_nivel = "Diez en Progra (27 golpes)";
 		
 		return nombre_nivel; 
 		
