@@ -8,3 +8,7 @@ Jugador: sas; Puntuaci�n: 0.5; Nivel 1: 1; Nivel 2: 1; Nivel 3: 1; Nivel 4: 1;
 Jugador: andres; Puntuaci�n: 0.009227614; Nivel 1: 0,0092; Nivel 2: 1; Nivel 3: 1; Nivel 4: 1; Nivel 5: 1; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019
 Jugador: francisco; Puntuaci�n: 0,03; Nivel 1: 0,05; Nivel 2: 0,6; Nivel 3: 1; Nivel 4: 1; Nivel 5: 1; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019
 Jugador: andres; Puntuaci�n: 1; Nivel 1: 1; Nivel 2: 1; Nivel 3: 1; Nivel 4: 1; Nivel 5: 1; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019
+Jugador: pepe; Puntuaci�n: 0,107; Nivel 1: 0,107; Nivel 2: 1; Nivel 3: 1; Nivel 4: 1; Nivel 5: 1; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019
+Jugador: david; Puntuaci�n: 1; Nivel 1: 1; Nivel 2: 1; Nivel 3: 1; Nivel 4: 1; Nivel 5: 1; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019
+Jugador: andres; Puntuaci�n: 0,6; Nivel 1: 1; Nivel 2: 0,6; Nivel 3: 1; Nivel 4: 1; Nivel 5: 1; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019
+Jugador: andres; Puntuaci�n: 0,25; Nivel 1: 1; Nivel 2: 0,167; Nivel 3: 1; Nivel 4: 1,5; Nivel 5: 1; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019

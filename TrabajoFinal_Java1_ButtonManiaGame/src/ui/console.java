@@ -7,6 +7,7 @@
 package ui;
 
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class console {
 	
@@ -76,7 +77,7 @@ public class console {
 				menu=false; //por defecto la victoria es falsa
 
 				//Mostramos tablero
-				opc = interfaz(matrizTablero, nivel, cont,true);//debe validar la entrada (opc menu o jugada valida)
+				opc = interfaz(matrizTablero, nivel, cont,true,calificacionNivel);//debe validar la entrada (opc menu o jugada valida)
 				
 				//Comprobamos si el caracter introducido es entrada de menu
 				if ((opc==1)||(opc==2)||(opc==3)||(opc==4)||(opc==-2)){
@@ -123,8 +124,9 @@ public class console {
 			//Victoria 
 			if(victoria==true){
 				puntuacion = ((float)nivel*3)/(float)cont;
-				
-				interfaz(matrizTablero, nivel, cont,false);
+				puntuacion_total*=puntuacion;  
+				calificacionNivel[nivel]*=puntuacion;
+				interfaz(matrizTablero, nivel, cont,false,calificacionNivel);
 				
 				
 				if(cont<(nivel*3)) {
@@ -134,7 +136,7 @@ public class console {
 					System.out.println("Perfecto.  Hecho  en "+cont+" golpes");
 					System.out.println();
 				}else if(cont>(nivel*3)){
-					System.out.println("Echo  en "+cont+" golpes");
+					System.out.println("Hecho  en "+cont+" golpes");
 					System.out.println();
 					
 				}
@@ -146,8 +148,7 @@ public class console {
 				System.out.println();
 				System.out.println();
 			
-				puntuacion_total*=puntuacion;  
-				calificacionNivel[nivel] *=puntuacion;
+				
 				
 				cont=0;
 				
@@ -164,14 +165,14 @@ public class console {
 				System.out.println("+---------------------------------------------------------------------------+");
 				System.out.println("| Calificaciones:                                                           |");
 				System.out.println("|                                                                           |");
-				System.out.println("| 1- Aprendizaje (3 golpes): "+calificacionNivel[1]+"                                            |");
-				System.out.println("| 2- Simple (6 golpes): "+calificacionNivel[2]+"                                                 |");
-				System.out.println("| 3- Dificilísimo(es broma) (9 golpes): "+calificacionNivel[3]+"                                 |");
-				System.out.println("| 4- Ya se va complicando (12 golpes): "+calificacionNivel[4]+"                                  |");
+				System.out.println("| 1- Para tontos (3 golpes): "+calificacionNivel[1]+"                                            |");
+				System.out.println("| 2- Aprendizaje (6 golpes): "+calificacionNivel[2]+"                                            |");
+				System.out.println("| 3- Simple (9 golpes): "+calificacionNivel[3]+"                                                 |");
+				System.out.println("| 4- Casi normal (12 golpes): "+calificacionNivel[4]+"                                           |");
 				System.out.println("| 5- Normal (15 golpes): "+calificacionNivel[5]+"                                                |");
-				System.out.println("| 6- Yo no llego a este (18 golpes): "+calificacionNivel[6]+"                                    |");
-				System.out.println("| 7- Crack (21 golpes): "+calificacionNivel[7]+"                                                 |");
-				System.out.println("| 8- Puto amo (24 golpes): "+calificacionNivel[8]+"                                              |");
+				System.out.println("| 6- Difícil (18 golpes): "+calificacionNivel[6]+"                                               |");
+				System.out.println("| 7- Puto amo (21 golpes): "+calificacionNivel[7]+"                                              |");
+				System.out.println("| 8- Imposible (24 golpes): "+calificacionNivel[8]+"                                             |");
 				System.out.println("| 9- Exámenes de Alejandro (27 golpes): "+calificacionNivel[9]+"                                 |");
 				System.out.println("|                                                                           |");
 				System.out.print("| ¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No ):              |");
@@ -439,8 +440,9 @@ public class console {
 	}
 
 	//Interfaz Basica del programa por consola, necesita el tablero y el nivel actual como parametro
-	private static int interfaz(int[][] matrizTablero, int nivel, int cont, boolean verdadero) {
+	private static int interfaz(int[][] matrizTablero, int nivel, int cont, boolean verdadero, float []cal_level) {
 		
+		DecimalFormat formateador = new DecimalFormat("#.###");
 		//Interfaz Basica del programa por consola, necesita el tablero y el nivel actual como parametro
 		
 		
@@ -467,7 +469,9 @@ public class console {
 		}
 		System.out.println("|                   F +-----------------------+                             |");
 		System.out.println("|                                                                           |");
-		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+" ("+(nivel*3)+" golpes)            Golpes realizados: "+cont);
+		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+cal_level[nivel]+"  ");
+		System.out.println("|                                                                           |");
+		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna):         |");	         
 		System.out.println("|                                                                           |");
 		System.out.println("+---------------------------------------------------------------------------+");
 		
@@ -487,23 +491,23 @@ public class console {
 		String nombre_nivel=null;
 		
 		if (level == 1)
-			nombre_nivel = "Aprendizaje";
+			nombre_nivel = "Para tontos (3 golpes)";
 		else if (level == 2)
-			nombre_nivel = "Simple";
+			nombre_nivel = "Aprendizaje (6 golpes)";
 		else if (level == 3)
-			nombre_nivel = "Dificilísimo";
+			nombre_nivel = "Simple (9 golpes)";
 		else if (level == 4) 
-			nombre_nivel = "Ya se va complicando";
+			nombre_nivel = "Casi normal (12 golpes)";
 		else if (level == 5)
-			nombre_nivel = "Normal";
+			nombre_nivel = "Normal (15 golpes)";
 		else if (level ==6)
-			nombre_nivel = "Yo no llego a este";
+			nombre_nivel = "Difícil (18 golpes)";
 		else if (level ==7)
-			nombre_nivel = "Crack";
+			nombre_nivel = "Puto amo (21 golpes)";
 		else if (level ==8)
-			nombre_nivel = "Puto amo";
+			nombre_nivel = "Imposible (24 golpes)";
 		else if (level ==9)
-			nombre_nivel = "Exámenes de Alejandro";
+			nombre_nivel = "Exámenes de Alejandro (27 golpes)";
 		
 		return nombre_nivel; 
 		
