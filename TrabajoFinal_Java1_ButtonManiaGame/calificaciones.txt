@@ -1,7 +1,6 @@
-Jugador: dasdasd; Puntuaci�n: 0.33333334; Nivel 1: 0.33333334; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 1.0; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 24-05-2019
-Jugador: pepepepepepe; Puntuaci�n: 0.25; Nivel 1: 0.5; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 0.5; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 24-05-2019
-Jugador: dasds; Puntuaci�n: 0.16666667; Nivel 1: 0.33333334; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 0.5; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 24-05-2019
-Jugador: pepe; Puntuaci�n: 2.830579E-4; Nivel 1: 2.830579E-4; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 1.0; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 24-05-2019
-Jugador: paquito; Puntuaci�n: Infinity; Nivel 1: 0.61904764; Nivel 2: Infinity; Nivel 3: Infinity; Nivel 4: Infinity; Nivel 5: Infinity; Nivel 6: Infinity; Nivel 7: Infinity; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 24-05-2019
-Jugador: ale; Puntuaci�n: Infinity; Nivel 1: Infinity; Nivel 2: Infinity; Nivel 3: Infinity; Nivel 4: Infinity; Nivel 5: 0.5; Nivel 6: Infinity; Nivel 7: Infinity; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 24-05-2019
-Jugador: andres; Puntuaci�n: Infinity; Nivel 1: 0.5681818; Nivel 2: Infinity; Nivel 3: Infinity; Nivel 4: Infinity; Nivel 5: Infinity; Nivel 6: Infinity; Nivel 7: Infinity; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 24-05-2019
+Jugador: andres; Puntuaci�n: 0.0; Nivel 1: 0.0; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 1.0; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 31-05-2019
+Jugador: adsa; Puntuaci�n: 0.0; Nivel 1: 0.0; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 1.0; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 31-05-2019
+Jugador: pepe; Puntuaci�n: 0.27272728; Nivel 1: 0.27272728; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 1.0; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 31-05-2019
+Jugador: juan; Puntuaci�n: 0.0430622; Nivel 1: 0.0430622; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 1.0; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 31-05-2019
+Jugador: ddd; Puntuaci�n: 0.0430622; Nivel 1: 0.0430622; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 1.0; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 31-05-2019
+Jugador: juandri; Puntuaci�n: 0.21428572; Nivel 1: 0.42857143; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 0.5; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 31-05-2019

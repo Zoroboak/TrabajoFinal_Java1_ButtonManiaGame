@@ -10,7 +10,7 @@ public class console {
 		int nivel =  5;  //por defecto nivel normal [1-9]
 		int[][] matriz = service.process.generarMatriz(); //Generar matriz todo a 0 por defecto 
 		//String jugador = "Player";
-
+		float puntuacion_total=0f;
 		//Iniciando Partida
 		int cont = 0;
 		float calificacionNivel[] = {1,1,1,1,1,1,1,1,1,1,1}; //Vector que almacena los las puntuaciones de la partida
@@ -29,13 +29,10 @@ public class console {
 		int[][] matrizTableroCopia = new int[8][8];
 		int opc = 0; // Variable auxiliar que se usa para menus
 		float puntuacion = 0; //Variable que usamos para almacenar la puntuaci�n
-		int[] num_partidas = new int[8];  //para contar el numero de partidas de cada nivel para despues dividirlo y sacar el producto.
-		boolean[] primera_vez = new boolean [8];
+		
+	
 		
 		
-		for(int i= 0; i<8;i++) {
-			primera_vez[i]=true;
-		}
 		
 		//Bucle Partida
 		do{
@@ -45,9 +42,9 @@ public class console {
 			//Compruebo que tipo de partida es
 			if(opcmenu==2){ //Si es una nueva partida:
 				if(cont!=0) {
-					num_partidas[nivel]++;
 					puntuacion=0.5f;
-					calificacionNivel[nivel] +=puntuacion;
+					puntuacion_total*=puntuacion;  
+					calificacionNivel[nivel] *=puntuacion;
 				}
 				matrizTablero = service.process.generarMatriz(); 
 				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
@@ -103,15 +100,13 @@ public class console {
 				}else{
 					//Si no es un menu, solo puede ser una jugada
 					try{
-						if(primera_vez[nivel]==true) {
-							calificacionNivel[nivel]=0f;
-						}
+						
 						service.process.jugarFicha(opc,matrizTablero);
 						cont++;
 						if(service.process.comprobarVictoria(matrizTablero)==true){
 							victoria=true;
 						}
-						primera_vez[nivel] = false;
+						
 					}catch(Exception e){
 						System.out.println("Algo ha fallado durante la partida, se empezara una nueva");
 					}
@@ -144,9 +139,9 @@ public class console {
 				System.out.println("Tu calificaci�n en este nivel es de "+puntuacion+" puntos");
 				System.out.println();
 				System.out.println();
-				num_partidas[nivel]++;
-				
-				calificacionNivel[nivel] +=puntuacion;
+			
+				puntuacion_total*=puntuacion;  
+				calificacionNivel[nivel] *=puntuacion;
 				
 				cont=0;
 				
@@ -177,9 +172,11 @@ public class console {
 			if(opcmenu==4){
 				
 				if(cont!=0) {
-					num_partidas[nivel]++;
+					
 					puntuacion=0.5f;
-					calificacionNivel[nivel] +=puntuacion;
+					puntuacion_total*=puntuacion;  
+					calificacionNivel[nivel] *=puntuacion;
+			
 				}
 				//puntuacion = (float) 133.00000000;
 				
@@ -194,17 +191,15 @@ public class console {
 
 			if(opcmenu==-2){
 				if(cont!=0) {
-					num_partidas[nivel]++;
+					
 					puntuacion=0.5f;
-					calificacionNivel[nivel] +=puntuacion;
+					puntuacion_total*=puntuacion;  
+					calificacionNivel[nivel] *=puntuacion;
+					
 				}
 				
 				
-				for(int i=0; i<8; i++) {
-					
-					calificacionNivel[i]/=num_partidas[i];
-					
-				}
+				
 				
 				System.out.println("Saliendo del juego");
 				
