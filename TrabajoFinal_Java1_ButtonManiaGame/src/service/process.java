@@ -3,7 +3,7 @@ package service;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
+import java.text.DecimalFormat;
 public class process {
 
 	/*
@@ -11,7 +11,7 @@ public class process {
 	 * 		-> Void
 	 * Salida
 	 * 		-> int[][] matriz
-	 * Descripción
+	 * Descripciï¿½n
 	 * 		-> Genera un tablero relleno de 0
 	 * 
 	 */
@@ -46,8 +46,8 @@ public class process {
 	 * 		-> int[][] matriz
 	 * Salida
 	 * 		-> int[][] matriz
-	 * Descripción
-	 * 		-> Genera de forma aleatoria de una en una posición para hacer el juego de forma inversa según el nivel que recibe
+	 * Descripciï¿½n
+	 * 		-> Genera de forma aleatoria de una en una posiciï¿½n para hacer el juego de forma inversa segï¿½n el nivel que recibe
 	 * 
 	 */
 	
@@ -105,7 +105,7 @@ public class process {
 	 * 		-> int posicion jugada
 	 * Salida
 	 * 		-> void
-	 * Descripción
+	 * Descripciï¿½n
 	 * 		-> Simula la jugada del jugador sobre el tablero
 	 * 
 	 */
@@ -163,7 +163,7 @@ public class process {
 	 * 		-> int[][] matrizTablero
 	 * Salida
 	 * 		-> boolean victoria
-	 * Descripción
+	 * Descripciï¿½n
 	 * 		-> Indica si el juego ha finalizado o no
 	 * 
 	 */
@@ -187,16 +187,16 @@ public class process {
 	public static void guardarCalificaciones(String jugador, float[] calificacionNivel) {
 		
 		
-		//obtener la fecha a través de Gregorian calendar
+		//obtener la fecha a travï¿½s de Gregorian calendar
 		Calendar c1 = GregorianCalendar.getInstance();
 		//obtengo un conversor que permite pasar calendar a String
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-		//le formateo para obtener un String a través de la fecha
+		//le formateo para obtener un String a travï¿½s de la fecha
 		String fecha =sdf.format(c1.getTime());
 		// esto es simplemente para comprobar que la saca bien
 		//System.out.println("fecha actual: "+fecha);
 		
-		
+		DecimalFormat formateador = new DecimalFormat("#.##");
 		float puntuacion = 1;
 		String puntuacionString = "";
 		
@@ -205,16 +205,16 @@ public class process {
 		}
 		
 		puntuacionString = 
-				"Puntuación: "+puntuacion+"; "+
-				"Nivel 1: "+calificacionNivel[1]+"; "+
-				"Nivel 2: "+calificacionNivel[2]+"; "+
-				"Nivel 3: "+calificacionNivel[3]+"; "+
-				"Nivel 4: "+calificacionNivel[4]+"; "+
-				"Nivel 5: "+calificacionNivel[5]+"; "+
-				"Nivel 6: "+calificacionNivel[6]+"; "+
-				"Nivel 7: "+calificacionNivel[7]+"; "+
-				"Nivel 8: "+calificacionNivel[8]+"; "+
-				"Nivel 9: "+calificacionNivel[9]+"; "+
+				"Puntuaciï¿½n: "+formateador.format(puntuacion)+"; "+
+				"Nivel 1: "+formateador.format(calificacionNivel[1])+"; "+
+				"Nivel 2: "+formateador.format(calificacionNivel[2])+"; "+
+				"Nivel 3: "+formateador.format(calificacionNivel[3])+"; "+
+				"Nivel 4: "+formateador.format(calificacionNivel[4])+"; "+
+				"Nivel 5: "+formateador.format(calificacionNivel[5])+"; "+
+				"Nivel 6: "+formateador.format(calificacionNivel[6])+"; "+
+				"Nivel 7: "+formateador.format(calificacionNivel[7])+"; "+
+				"Nivel 8: "+formateador.format(calificacionNivel[8])+"; "+
+				"Nivel 9: "+formateador.format(calificacionNivel[9])+"; "+
 				"Fecha: "+fecha;
 		
 		data.fichero.escribirFichero(jugador, puntuacionString);

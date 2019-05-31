@@ -1,9 +1,8 @@
 package data;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+
 
 public class fichero {
 
@@ -12,7 +11,6 @@ public class fichero {
 	
 		//nombre del fichero
 		String  nombrefichero ="calificaciones.txt";
-		
 		FileWriter fw = null;
 		PrintWriter pw = null;
 		File file = new File (nombrefichero);
