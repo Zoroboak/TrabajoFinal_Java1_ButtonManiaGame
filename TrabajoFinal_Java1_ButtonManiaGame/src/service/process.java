@@ -44,47 +44,46 @@ public class process {
 		return matriz;
 	}
 
-	
 	public static int[][] generarPartidaPruebas(int[][] matriz, int nivel) {
 		
 		generarMatriz(matriz);
-		int nivel_1_fil[] = {1,5,6};
-		int nivel_1_col[] = {3,4,2};
+		int nivel_fil[] = {1,5,6,3,3,3,3,1,2,3,5,6,1,2,3,4,5,6,1,2,4,6,5,2,3,4,1};
+		int nivel_col[] = {3,4,2,4,4,4,4,3,4,6,3,2,1,4,5,6,3,1,2,3,4,5,6,3,2,6,5};
+		
+		int golpes = nivel * 3;
 		
 		
-		
-		if(nivel==1) {
 			
-			for (int i = 0; i < 3; i++) {
+			for (int i = 0; i < golpes; i++) {
 
-				if (matriz[nivel_1_fil[i]][nivel_1_col[i]] == 3) {
-					matriz[nivel_1_fil[i]][nivel_1_col[i]] = 0;
+				if (matriz[nivel_fil[i]][nivel_col[i]] == 3) {
+					matriz[nivel_fil[i]][nivel_col[i]] = 0;
 				} else {
-					matriz[nivel_1_fil[i]][nivel_1_col[i]]++;
+					matriz[nivel_fil[i]][nivel_col[i]]++;
 				}
 				
-				if (matriz[nivel_1_fil[i]+1][nivel_1_col[i]] == 3) {
-					matriz[nivel_1_fil[i]+1][nivel_1_col[i]] = 0;
+				if (matriz[nivel_fil[i]+1][nivel_col[i]] == 3) {
+					matriz[nivel_fil[i]+1][nivel_col[i]] = 0;
 				} else {
-					matriz[nivel_1_fil[i]+1][nivel_1_col[i]]++;
+					matriz[nivel_fil[i]+1][nivel_col[i]]++;
 				}
 				
-				if (matriz[nivel_1_fil[i]-1][nivel_1_col[i]] == 3) {
-					matriz[nivel_1_fil[i]-1][nivel_1_col[i]] = 0;
+				if (matriz[nivel_fil[i]-1][nivel_col[i]] == 3) {
+					matriz[nivel_fil[i]-1][nivel_col[i]] = 0;
 				} else {
-					matriz[nivel_1_fil[i]-1][nivel_1_col[i]]++;
+					matriz[nivel_fil[i]-1][nivel_col[i]]++;
 				}
 				
-				if (matriz[nivel_1_fil[i]][nivel_1_col[i]+1] == 3) {
-					matriz[nivel_1_fil[i]][nivel_1_col[i]+1] = 0;
+				if (matriz[nivel_fil[i]][nivel_col[i]+1] == 3) {
+					matriz[nivel_fil[i]][nivel_col[i]+1] = 0;
 				} else {
-					matriz[nivel_1_fil[i]][nivel_1_col[i]+1]++;
+					matriz[nivel_fil[i]][nivel_col[i]+1]++;
 				}
 				
-				if (matriz[nivel_1_fil[i]][nivel_1_col[i]-1] == 3) {
-					matriz[nivel_1_fil[i]][nivel_1_col[i]-1] = 0;
+				if (matriz[nivel_fil[i]][nivel_col[i]-1] == 3) {
+					matriz[nivel_fil[i]][nivel_col[i]-1] = 0;
 				} else {
-					matriz[nivel_1_fil[i]][nivel_1_col[i]-1]++;
+					matriz[nivel_fil[i]][nivel_col[i]-1]++;
 				}
 				
 				
@@ -92,9 +91,6 @@ public class process {
 			}
 			
 			return matriz;
-		}
-		
-		else return matriz;
 		
 		
 	}
