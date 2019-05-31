@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.DecimalFormat;
 public class process {
-
+	
 	/*
 	 * Entradas
 	 * 		-> Void
@@ -95,9 +95,6 @@ public class process {
 		
 	}
 	
-	
-	
-	
 	/*
 	 * Entradas
 	 * 		-> int nivel
@@ -167,8 +164,7 @@ public class process {
 	 * 		-> Simula la jugada del jugador sobre el tablero
 	 * 
 	 */
-	
-	
+		
 
 	/*
 	 * Entradas
@@ -264,6 +260,7 @@ public class process {
 		}
 		
 	}
+
 	
 	public static void guardarCalificaciones(String jugador, float[] calificacionNivel) {
 		
