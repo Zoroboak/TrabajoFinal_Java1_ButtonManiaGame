@@ -36,6 +36,7 @@ public class console {
 		int[][] matrizTableroCopia = new int[8][8];
 		int opc = 0; // Variable auxiliar que se usa para menus
 		float puntuacion = 0; //Variable que usamos para almacenar la puntuaci�n
+		String ultimaJugada = "0 0"; // Variable donde almacenamos la ultima jugada del tablero
 		
 	
 		
@@ -77,8 +78,9 @@ public class console {
 				menu=false; //por defecto la victoria es falsa
 
 				//Mostramos tablero
-				opc = interfaz(matrizTablero, nivel, cont,true,calificacionNivel);//debe validar la entrada (opc menu o jugada valida)
+				opc = interfaz(matrizTablero, nivel, cont,true,calificacionNivel,ultimaJugada);//debe validar la entrada (opc menu o jugada valida)
 				
+				ultimaJugada=opc/10+" "+opc%10;
 				//Comprobamos si el caracter introducido es entrada de menu
 				if ((opc==1)||(opc==2)||(opc==3)||(opc==4)||(opc==-2)){
 					menu=true;
@@ -126,7 +128,7 @@ public class console {
 				puntuacion = ((float)nivel*3)/(float)cont;
 				puntuacion_total*=puntuacion;  
 				calificacionNivel[nivel]*=puntuacion;
-				interfaz(matrizTablero, nivel, cont,false,calificacionNivel);
+				interfaz(matrizTablero, nivel, cont,false,calificacionNivel, ultimaJugada);
 				
 				
 				if(cont<(nivel*3)) {
@@ -343,6 +345,11 @@ public class console {
 		String auxs = null;
 		char auxc = '0';
 		int aux = 0;
+		String text = "";
+		char[] opc1 = {'0','0'};
+		String myString = "0";
+		
+		
 		
 		switch (parametro) {
 		case 1:
@@ -352,24 +359,55 @@ public class console {
 			do {
 				try {
 					v = false;
-					//Mostrar texto pasado por parametro
-					System.out.println(string);
-					aux = sc.nextInt();
-					if(aux<=4&&aux>=1) {
-						//Rango Correcto
-						v = true;
-					}else if(aux>10&&aux<67) {
-						//Rango Correcto
-						v = true;
-					}else if(aux==-2) {
-						//Rango Correcto
-						v = true;
-					}else {
+							try {
+							//Seteo todas las variables (Forma rapi
+							auxc = '0';
+							aux = 0;
+							text = "";
+							opc1[0] = '0';
+							opc1[1] = '0';
+							myString = "0";
+							
+							//Mostrar texto pasado por parametro
+							System.out.println(string);
+							//aux = sc.nextInt();
+							text = sc.nextLine();
+							text+=text+"   ";//Me aseguro que el string nunca sea de menos de 3 caracteres
+							opc1[0] = text.charAt(0);
+							opc1[1] = text.charAt(2);
+							
+							myString = String.valueOf(opc1);
+		//					System.out.println(opc1);
+		//					System.out.println("My String: "+myString);
+							aux = Integer.parseInt(myString);
+							
+							
+							if(text.charAt(1)!=' '){
+								v = false; 
+								System.out.println("¡Opción fuera de rango! debes introducir: (fila columna)");
+							}else if (text.charAt(0)=='0'&&text.charAt(1)=='-'&&text.charAt(2)=='2') {
+								aux = -2;
+								//Rango Correcto
+								v = true;
+							}else {
+								if(aux<=4&&aux>=1) {
+									//Rango Correcto
+									v = true;
+								}else if(aux>10&&aux<67) {
+									//Rango Correcto
+									v = true;
+								}else {
+									v = false; 
+									System.out.println("¡Opción fuera de rango! debes introducir: (fila columna)");
+								}
+							}
+					}catch(Exception j) {
 						v = false; 
-						System.out.println("¡Opción fuera de rango!");
+						System.out.println(j.getMessage());
 					}
 				}catch (Exception e) {
-					System.out.println("¡El caracter introducido no es valido!");
+					System.out.println("¡Los caracteres introducidos no son validos!");
+					System.out.println(e.getMessage());
 					sc.next();
 					v=false;
 				}
@@ -433,7 +471,7 @@ public class console {
 	}
 
 	//Interfaz Basica del programa por consola, necesita el tablero y el nivel actual como parametro
-	private static int interfaz(int[][] matrizTablero, int nivel, int cont, boolean verdadero, float []cal_level) {
+	private static int interfaz(int[][] matrizTablero, int nivel, int cont, boolean verdadero, float []cal_level, String ultimaJugada) {
 		
 		DecimalFormat formateador = new DecimalFormat("#.###");
 		//Interfaz Basica del programa por consola, necesita el tablero y el nivel actual como parametro
@@ -462,9 +500,9 @@ public class console {
 		}
 		System.out.println("|                   F +-----------------------+                              |");
 		System.out.println("|                                                                            |");
-		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"    |");
+		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"  |");
 		System.out.println("|                                                                            |");
-		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna):          |");	         
+		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna): "+ultimaJugada+"      |");
 		System.out.println("|                                                                            |");
 		System.out.println("+----------------------------------------------------------------------------+");
 		
