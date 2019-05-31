@@ -44,6 +44,64 @@ public class process {
 		return matriz;
 	}
 
+	
+	public static int[][] generarPartidaPruebas(int[][] matriz, int nivel) {
+		
+		generarMatriz(matriz);
+		int nivel_1_fil[] = {1,5,6};
+		int nivel_1_col[] = {3,4,2};
+		
+		
+		
+		if(nivel==1) {
+			
+			for (int i = 0; i < 3; i++) {
+
+				if (matriz[nivel_1_fil[i]][nivel_1_col[i]] == 3) {
+					matriz[nivel_1_fil[i]][nivel_1_col[i]] = 0;
+				} else {
+					matriz[nivel_1_fil[i]][nivel_1_col[i]]++;
+				}
+				
+				if (matriz[nivel_1_fil[i]+1][nivel_1_col[i]] == 3) {
+					matriz[nivel_1_fil[i]+1][nivel_1_col[i]] = 0;
+				} else {
+					matriz[nivel_1_fil[i]+1][nivel_1_col[i]]++;
+				}
+				
+				if (matriz[nivel_1_fil[i]-1][nivel_1_col[i]] == 3) {
+					matriz[nivel_1_fil[i]-1][nivel_1_col[i]] = 0;
+				} else {
+					matriz[nivel_1_fil[i]-1][nivel_1_col[i]]++;
+				}
+				
+				if (matriz[nivel_1_fil[i]][nivel_1_col[i]+1] == 3) {
+					matriz[nivel_1_fil[i]][nivel_1_col[i]+1] = 0;
+				} else {
+					matriz[nivel_1_fil[i]][nivel_1_col[i]+1]++;
+				}
+				
+				if (matriz[nivel_1_fil[i]][nivel_1_col[i]-1] == 3) {
+					matriz[nivel_1_fil[i]][nivel_1_col[i]-1] = 0;
+				} else {
+					matriz[nivel_1_fil[i]][nivel_1_col[i]-1]++;
+				}
+				
+				
+				
+			}
+			
+			return matriz;
+		}
+		
+		else return matriz;
+		
+		
+	}
+	
+	
+	
+	
 	/*
 	 * Entradas
 	 * 		-> int nivel
