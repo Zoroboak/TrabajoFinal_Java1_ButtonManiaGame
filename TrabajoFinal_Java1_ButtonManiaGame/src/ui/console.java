@@ -163,15 +163,16 @@ public class console {
 			if(opcmenu==03){
 				System.out.println("+---------------------------------------------------------------------------+");
 				System.out.println("| Calificaciones:                                                           |");
-				System.out.println("| Aprendizaje (3 golpes): "+calificacionNivel[1]+"                                               |");
-				System.out.println("| Simple (6 golpes): "+calificacionNivel[2]+"                                                    |");
-				System.out.println("| Dificilísimo (es broma)(9 golpes): "+calificacionNivel[3]+"                                    |");
-				System.out.println("| Ya se va complicando (12 golpes): "+calificacionNivel[4]+"                                     |");
-				System.out.println("| Normal (15 golpes): "+calificacionNivel[5]+"                                                   |");
-				System.out.println("| Yo no llego a este (18 golpes): "+calificacionNivel[6]+"                                       |");
-				System.out.println("| Crack (21 golpes): "+calificacionNivel[7]+"                                                    |");
-				System.out.println("| Puto amo (24 golpes): "+calificacionNivel[8]+"                                                 |");
-				System.out.println("| Exámenes de Alejandro (27 golpes): "+calificacionNivel[9]+"                                    |");
+				System.out.println("|                                                                           |");
+				System.out.println("| 1- Aprendizaje (3 golpes): "+calificacionNivel[1]+"                                            |");
+				System.out.println("| 2- Simple (6 golpes): "+calificacionNivel[2]+"                                                 |");
+				System.out.println("| 3- Dificilísimo(es broma) (9 golpes): "+calificacionNivel[3]+"                                 |");
+				System.out.println("| 4- Ya se va complicando (12 golpes): "+calificacionNivel[4]+"                                  |");
+				System.out.println("| 5- Normal (15 golpes): "+calificacionNivel[5]+"                                                |");
+				System.out.println("| 6- Yo no llego a este (18 golpes): "+calificacionNivel[6]+"                                    |");
+				System.out.println("| 7- Crack (21 golpes): "+calificacionNivel[7]+"                                                 |");
+				System.out.println("| 8- Puto amo (24 golpes): "+calificacionNivel[8]+"                                              |");
+				System.out.println("| 9- Exámenes de Alejandro (27 golpes): "+calificacionNivel[9]+"                                 |");
 				System.out.println("|                                                                           |");
 				System.out.print("| ¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No ):              |");
 				int op =0;
