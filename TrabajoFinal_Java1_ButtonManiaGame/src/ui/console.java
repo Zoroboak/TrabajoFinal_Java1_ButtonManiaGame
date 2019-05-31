@@ -442,6 +442,26 @@ public class console {
 	private static int interfaz(int[][] matrizTablero, int nivel, int cont, boolean verdadero) {
 		
 		//Interfaz Basica del programa por consola, necesita el tablero y el nivel actual como parametro
+		String nombre_nivel=null;
+		if (nivel == 1)
+			nombre_nivel = "Aprendizaje";
+		else if (nivel == 2)
+			nombre_nivel = "Simple";
+		else if (nivel == 3)
+			nombre_nivel = "Dificilísimo";
+		else if (nivel == 4) 
+			nombre_nivel = "Ya se va complicando";
+		else if (nivel == 5)
+			nombre_nivel = "Normal";
+		else if (nivel ==6)
+			nombre_nivel = "Yo no llego a este";
+		else if (nivel ==7)
+			nombre_nivel = "Crack";
+		else if (nivel ==8)
+			nombre_nivel = "Puto amo";
+		else if (nivel ==9)
+			nombre_nivel = "Exámenes de Alejandro";
+		
 		
 		System.out.println();
 		System.out.println();
@@ -465,7 +485,7 @@ public class console {
 		}
 		System.out.println("|                   F +-----------------------+                             |");
 		System.out.println("|                                                                           |");
-		System.out.println("| Nivel del Juego: "+nivel+" ("+(nivel*3)+" golpes)        Golpes realizados: "+cont);
+		System.out.println("| Nivel de juego: "+nombre_nivel+" ("+(nivel*3)+" golpes)            Golpes realizados: "+cont);
 		System.out.println("|                                                                           |");
 		System.out.println("+---------------------------------------------------------------------------+");
 		
