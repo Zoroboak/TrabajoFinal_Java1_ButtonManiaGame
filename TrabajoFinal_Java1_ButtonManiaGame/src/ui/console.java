@@ -161,32 +161,42 @@ public class console {
 			}
 
 			if(opcmenu==03){
-				System.out.println("Calificaciones Seg�n el nivel de dificultad: ");
-				for(int i=1; i<=9; i++){
-					System.out.println("Nivel "+i+": "+calificacionNivel[i]+" puntos");
-				}
-				System.out.println("Para guardar tus calificaciones, Escoje la opci�n salir he introduce tu nombre. ");
-				System.out.print("¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No :");
+				System.out.println("+---------------------------------------------------------------------------+");
+				System.out.println("| Calificaciones:                                                           |");
+				System.out.println("| Aprendizaje (3 golpes): "+calificacionNivel[1]+"                                               |");
+				System.out.println("| Simple (6 golpes): "+calificacionNivel[2]+"                                                    |");
+				System.out.println("| Dificilísimo (es broma)(9 golpes): "+calificacionNivel[3]+"                                    |");
+				System.out.println("| Ya se va complicando (12 golpes): "+calificacionNivel[4]+"                                     |");
+				System.out.println("| Normal (15 golpes): "+calificacionNivel[5]+"                                                   |");
+				System.out.println("| Yo no llego a este (18 golpes): "+calificacionNivel[6]+"                                       |");
+				System.out.println("| Crack (21 golpes): "+calificacionNivel[7]+"                                                    |");
+				System.out.println("| Puto amo (24 golpes): "+calificacionNivel[8]+"                                                 |");
+				System.out.println("| Exámenes de Alejandro (27 golpes): "+calificacionNivel[9]+"                                    |");
+				System.out.println("|                                                                           |");
+				System.out.print("| ¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No ):              |");
 				int op =0;
 				try {
 					op= sc.nextInt();
 				}
 				catch(Exception e) {
 					System.out.println("No se puede introducir otra cosa que no sea un numero.");
+					
 					op =0;
 				}
 				if(op==0) {			
 					
 				}
-				else if (op==1) {
+				else if(op==1) {
 					service.process.borrarCalificaciones(calificacionNivel);
-					System.out.println("Calificaciones borradas.");
 				}
-				
 				else {
 					System.out.println("El numero solamente puede ser un 0 o un 1. Introduzca de nuevo: ");
 					op= sc.nextInt();
 				}
+				System.out.println();
+				System.out.println("+---------------------------------------------------------------------------+");
+				
+				
 			}
 
 			
