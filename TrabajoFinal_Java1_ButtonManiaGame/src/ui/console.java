@@ -1,3 +1,9 @@
+/**/
+/**/
+/**/
+/**/
+
+
 package ui;
 
 import java.util.Scanner;
@@ -5,7 +11,7 @@ import java.util.Scanner;
 public class console {
 	
 	public static void main(String[] args) {
-		
+		Scanner sc= new Scanner (System.in);
 		//Declaraci�nes del main
 		int nivel =  5;  //por defecto nivel normal [1-9]
 		int[][] matriz = service.process.generarMatriz(); //Generar matriz todo a 0 por defecto 
@@ -135,7 +141,7 @@ public class console {
 				
 				
 				
-				System.out.println("�Felicitaciones! Terminaste el tablero en "+cont+" golpes");
+				System.out.println("�Felicidades! Terminaste el tablero en "+cont+" golpes");
 				System.out.println("Tu calificaci�n en este nivel es de "+puntuacion+" puntos");
 				System.out.println();
 				System.out.println();
@@ -148,7 +154,7 @@ public class console {
 				opc = getDato("�Quieres Jugar otro Tablero? (1 para Si, 0 para No)",2);
 				if(opc==1){
 					opcmenu=2; //nuevo tablero
-				}else if(opc==2){
+				}else if(opc==0){
 					opcmenu=-2; //salir
 				}
 				
@@ -160,6 +166,27 @@ public class console {
 					System.out.println("Nivel "+i+": "+calificacionNivel[i]+" puntos");
 				}
 				System.out.println("Para guardar tus calificaciones, Escoje la opci�n salir he introduce tu nombre. ");
+				System.out.print("¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No :");
+				int op =0;
+				try {
+					op= sc.nextInt();
+				}
+				catch(Exception e) {
+					System.out.println("No se puede introducir otra cosa que no sea un numero.");
+					op =0;
+				}
+				if(op==0) {			
+					
+				}
+				else if (op==1) {
+					service.process.borrarCalificaciones(calificacionNivel);
+					System.out.println("Calificaciones borradas.");
+				}
+				
+				else {
+					System.out.println("El numero solamente puede ser un 0 o un 1. Introduzca de nuevo: ");
+					op= sc.nextInt();
+				}
 			}
 
 			

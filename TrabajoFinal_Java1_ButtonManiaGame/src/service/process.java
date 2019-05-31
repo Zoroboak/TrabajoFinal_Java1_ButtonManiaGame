@@ -1,5 +1,9 @@
-package service;
+/**/
+/**/
+/**/
+/**/
 
+package service;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -196,6 +200,17 @@ public class process {
 			}
 		}
 
+	
+	public static void borrarCalificaciones (float[] calificacionNivel) {
+		
+		for(int i=0; i<calificacionNivel.length;i++) {
+			
+			calificacionNivel[i]=1f;
+			
+		}
+		
+	}
+	
 	public static void guardarCalificaciones(String jugador, float[] calificacionNivel) {
 		
 		
