@@ -110,6 +110,44 @@ public class process {
 	 * 
 	 */
 	
+	
+
+	/*
+	 * Entradas
+	 * 		-> int[][] matrizTablero
+	 * Salida
+	 * 		-> boolean victoria
+	 * Descripci�n
+	 * 		-> Indica si el juego ha finalizado o no
+	 * 
+	 */
+	
+	public static boolean comprobarVictoria(int [][] matrizTablero) {
+		
+		boolean victoria = true;
+		
+		for (int i = 1; i < 7; i++) {
+			for (int j = 1; j < 7; j++) {
+				if (matrizTablero[i][j] != 0) {
+					victoria = false;
+				}
+			}
+		}
+		
+		return victoria;
+		
+	}
+
+	/*
+	 * Entradas
+	 * 		-> int posicion jugada
+	 * Salida
+	 * 		-> void
+	 * Descripci�n
+	 * 		-> Simula la jugada del jugador sobre el tablero
+	 * 
+	 */
+	
 	public static void jugarFicha(int opc, int[][] matrizTablero) {
 			
 			
@@ -158,32 +196,6 @@ public class process {
 			}
 		}
 
-	/*
-	 * Entradas
-	 * 		-> int[][] matrizTablero
-	 * Salida
-	 * 		-> boolean victoria
-	 * Descripci�n
-	 * 		-> Indica si el juego ha finalizado o no
-	 * 
-	 */
-	
-	public static boolean comprobarVictoria(int [][] matrizTablero) {
-		
-		boolean victoria = true;
-		
-		for (int i = 1; i < 7; i++) {
-			for (int j = 1; j < 7; j++) {
-				if (matrizTablero[i][j] != 0) {
-					victoria = false;
-				}
-			}
-		}
-		
-		return victoria;
-		
-	}
-
 	public static void guardarCalificaciones(String jugador, float[] calificacionNivel) {
 		
 		
@@ -196,7 +208,7 @@ public class process {
 		// esto es simplemente para comprobar que la saca bien
 		//System.out.println("fecha actual: "+fecha);
 		
-		DecimalFormat formateador = new DecimalFormat("#.##");
+		DecimalFormat formateador = new DecimalFormat("#.###");
 		float puntuacion = 1;
 		String puntuacionString = "";
 		

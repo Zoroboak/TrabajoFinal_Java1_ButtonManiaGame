@@ -6,3 +6,4 @@ Jugador: ddd; Puntuaci�n: 0.0430622; Nivel 1: 0.0430622; Nivel 2: 1.0; Nivel 3
 Jugador: juandri; Puntuaci�n: 0.21428572; Nivel 1: 0.42857143; Nivel 2: 1.0; Nivel 3: 1.0; Nivel 4: 1.0; Nivel 5: 0.5; Nivel 6: 1.0; Nivel 7: 1.0; Nivel 8: 1.0; Nivel 9: 1.0; Fecha: 31-05-2019
 Jugador: sas; Puntuaci�n: 0.5; Nivel 1: 1; Nivel 2: 1; Nivel 3: 1; Nivel 4: 1; Nivel 5: 0,5; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019
 Jugador: andres; Puntuaci�n: 0.009227614; Nivel 1: 0,0092; Nivel 2: 1; Nivel 3: 1; Nivel 4: 1; Nivel 5: 1; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019
+Jugador: francisco; Puntuaci�n: 0,03; Nivel 1: 0,05; Nivel 2: 0,6; Nivel 3: 1; Nivel 4: 1; Nivel 5: 1; Nivel 6: 1; Nivel 7: 1; Nivel 8: 1; Nivel 9: 1; Fecha: 31-05-2019
