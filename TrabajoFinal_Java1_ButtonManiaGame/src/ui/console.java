@@ -172,6 +172,7 @@ public class console {
 				
 				opc = getDato("¿Quieres seguir jugando ? (1 para Si, -1 para No)",2);
 				if(opc==1){
+					ultimaJugada="0 0";
 					opcmenu=2; //nuevo tablero
 				}else if(opc==-1){
 					opcmenu=-2; //salir
