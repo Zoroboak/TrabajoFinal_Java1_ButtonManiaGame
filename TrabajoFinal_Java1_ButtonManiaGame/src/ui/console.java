@@ -30,6 +30,7 @@ public class console {
 		*/
 
 		//Variables auxiliares
+		
 		boolean victoria = false; //por defecto la victoria es falsa
 		boolean menu = false;
 		int[][] matrizTablero = new int[8][8];
@@ -37,15 +38,15 @@ public class console {
 		int opc = 0; // Variable auxiliar que se usa para menus
 		float puntuacion = 0; //Variable que usamos para almacenar la puntuaci�n
 		String ultimaJugada = "0 0"; // Variable donde almacenamos la ultima jugada del tablero
-		
-	
-		
-		
+		boolean[]nivelJugado= {false,false,false,false,false,false,false,false,false,false,false}; 
+		float calificacionZero = 0.00f;
+		float []calificacionVisual = new float[9];
+		DecimalFormat formateador = new DecimalFormat("0.00");
 		
 		//Bucle Partida
 		do{
 			
-			//Reseteo el contador de golpes
+			//Reseteo el contador de golpess
 			//cont = 0;
 			//Compruebo que tipo de partida es
 			if(opcmenu==2){ //Si es una nueva partida:
@@ -53,7 +54,9 @@ public class console {
 					puntuacion=0.5f;
 					puntuacion_total*=puntuacion;  
 					calificacionNivel[nivel] *=puntuacion;
+					
 				}
+				calificacionVisual[nivel]= 0;
 				matrizTablero = service.process.generarMatriz(); 
 				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
 				cont = 0;
@@ -62,6 +65,8 @@ public class console {
 				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
 				cont = 0;
 			}else if(opcmenu==1){ //Si se esta recomenzando: 
+				
+				calificacionVisual[nivel]= 0;
 				System.out.println("Recomenzando");
 				//matrizTablero = matrizTableroCopia.clone();
 				for (int i = 0; i < matrizTableroCopia.length; i++) {
@@ -76,9 +81,10 @@ public class console {
 			do{ 
 				victoria = false; //por defecto la victoria es falsa
 				menu=false; //por defecto la victoria es falsa
-
+				
+				
 				//Mostramos tablero
-				opc = interfaz(matrizTablero, nivel, cont,true,calificacionNivel,ultimaJugada);//debe validar la entrada (opc menu o jugada valida)
+				opc = interfaz(matrizTablero, nivel, cont,true,calificacionVisual,ultimaJugada);//debe validar la entrada (opc menu o jugada valida)
 				
 				ultimaJugada=opc/10+" "+opc%10;
 				//Comprobamos si el caracter introducido es entrada de menu
@@ -110,8 +116,17 @@ public class console {
 					//Si no es un menu, solo puede ser una jugada
 					try{
 						
+						
+						
 						service.process.jugarFicha(opc,matrizTablero);
+						if(nivelJugado[nivel] == false) {
+							calificacionNivel[nivel]=1.00f;
+							
+						}nivelJugado[nivel] = true;
 						cont++;
+						puntuacion = ((float)nivel*3)/(float)cont;
+						calificacionVisual[nivel]= puntuacion;
+						nivelJugado[nivel] = true;
 						if(service.process.comprobarVictoria(matrizTablero)==true){
 							victoria=true;
 						}
@@ -126,9 +141,10 @@ public class console {
 			//Victoria 
 			if(victoria==true){
 				puntuacion = ((float)nivel*3)/(float)cont;
+				calificacionVisual[nivel]= puntuacion;
 				puntuacion_total*=puntuacion;  
 				calificacionNivel[nivel]*=puntuacion;
-				interfaz(matrizTablero, nivel, cont,false,calificacionNivel, ultimaJugada);
+				interfaz(matrizTablero, nivel, cont,false,calificacionVisual, ultimaJugada);
 				
 				
 				if(cont<(nivel*3)) {
@@ -164,18 +180,26 @@ public class console {
 			}
 
 			if(opcmenu==03){
+				
+				for(int j = 0; j < nivelJugado.length;j++) {
+					if(nivelJugado[j] == false)
+						calificacionNivel[j] = 0.00f;
+
+				}
+				
+				
 				System.out.println("+---------------------------------------------------------------------------+");
 				System.out.println("| Calificaciones:                                                           |");
 				System.out.println("|                                                                           |");
-				System.out.println("| 1- Para tontos (3 golpes): "+calificacionNivel[1]+"                                            |");
-				System.out.println("| 2- Aprendizaje (6 golpes): "+calificacionNivel[2]+"                                            |");
-				System.out.println("| 3- Simple (9 golpes): "+calificacionNivel[3]+"                                                 |");
-				System.out.println("| 4- Casi normal (12 golpes): "+calificacionNivel[4]+"                                           |");
-				System.out.println("| 5- Normal (15 golpes): "+calificacionNivel[5]+"                                                |");
-				System.out.println("| 6- Difícil (18 golpes): "+calificacionNivel[6]+"                                               |");
-				System.out.println("| 7- Puto amo (21 golpes): "+calificacionNivel[7]+"                                              |");
-				System.out.println("| 8- Imposible (24 golpes): "+calificacionNivel[8]+"                                             |");
-				System.out.println("| 9- Diez en progra (27 golpes): "+calificacionNivel[9]+"                                 |");
+				System.out.println("| 1- Para bebés (3 golpes): "+formateador.format(calificacionNivel[1])+"                                            |");
+				System.out.println("| 2- Aprendizaje (6 golpes): "+formateador.format(calificacionNivel[2])+"                                            |");
+				System.out.println("| 3- Simple (9 golpes): "+formateador.format(calificacionNivel[3])+"                                                 |");
+				System.out.println("| 4- Casi normal (12 golpes): "+formateador.format(calificacionNivel[4])+"                                           |");
+				System.out.println("| 5- Normal (15 golpes): "+formateador.format(calificacionNivel[5])+"                                                |");
+				System.out.println("| 6- Difícil (18 golpes): "+formateador.format(calificacionNivel[6])+"                                               |");
+				System.out.println("| 7- Puto amo (21 golpes): "+formateador.format(calificacionNivel[7])+"                                              |");
+				System.out.println("| 8- Imposible (24 golpes): "+formateador.format(calificacionNivel[8])+"                                             |");
+				System.out.println("| 9- Diez en progra (27 golpes): "+formateador.format(calificacionNivel[9])+"                                 |");
 				System.out.println("|                                                                           |");
 				System.out.print("| ¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No ):              |");
 				int op =0;
@@ -213,8 +237,8 @@ public class console {
 					calificacionNivel[nivel] *=puntuacion;
 			
 				}
-				//puntuacion = (float) 133.00000000;
-				
+			
+				calificacionVisual[nivel]= 0.00f;
 				
 				opcmenu = 4;
 				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil",3);
@@ -473,9 +497,9 @@ public class console {
 	//Interfaz Basica del programa por consola, necesita el tablero y el nivel actual como parametro
 	private static int interfaz(int[][] matrizTablero, int nivel, int cont, boolean verdadero, float []cal_level, String ultimaJugada) {
 		
-		DecimalFormat formateador = new DecimalFormat("#.###");
+		DecimalFormat formateador = new DecimalFormat("0.00");
 		//Interfaz Basica del programa por consola, necesita el tablero y el nivel actual como parametro
-		
+	
 		
 		
 		System.out.println();
@@ -500,7 +524,7 @@ public class console {
 		}
 		System.out.println("|                   F +-----------------------+                              |");
 		System.out.println("|                                                                            |");
-		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"  |");
+		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"   |");
 		System.out.println("|                                                                            |");
 		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna): "+ultimaJugada+"      |");
 		System.out.println("|                                                                            |");
@@ -522,7 +546,7 @@ public class console {
 		String nombre_nivel=null;
 		
 		if (level == 1)
-			nombre_nivel = "Para tontos (3 golpes)";
+			nombre_nivel = "Para bebés (3 golpes)";
 		else if (level == 2)
 			nombre_nivel = "Aprendizaje (6 golpes)";
 		else if (level == 3)

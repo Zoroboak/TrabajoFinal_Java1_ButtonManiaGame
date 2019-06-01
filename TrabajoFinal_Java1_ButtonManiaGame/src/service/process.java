@@ -255,7 +255,7 @@ public class process {
 		
 		for(int i=0; i<calificacionNivel.length;i++) {
 			
-			calificacionNivel[i]=1f;
+			calificacionNivel[i]=0.00f;
 			
 		}
 		
@@ -274,7 +274,7 @@ public class process {
 		// esto es simplemente para comprobar que la saca bien
 		//System.out.println("fecha actual: "+fecha);
 		
-		DecimalFormat formateador = new DecimalFormat("#.###");
+		DecimalFormat formateador = new DecimalFormat("0.000");
 		float puntuacion = 1;
 		String puntuacionString = "";
 		

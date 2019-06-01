@@ -1,0 +1,3 @@
+Jugador: pepe; Puntuación: 0,058; Nivel 1: 0,117; Nivel 2: 1,000; Nivel 3: 1,000; Nivel 4: 1,000; Nivel 5: 0,500; Nivel 6: 1,000; Nivel 7: 1,000; Nivel 8: 1,000; Nivel 9: 1,000; Fecha: 01-06-2019
+Jugador: pepe; Puntuación: 0,000; Nivel 1: 0,000; Nivel 2: 0,000; Nivel 3: 0,000; Nivel 4: 0,000; Nivel 5: 0,000; Nivel 6: 0,000; Nivel 7: 0,000; Nivel 8: 0,000; Nivel 9: 0,000; Fecha: 01-06-2019
+Jugador: dad; Puntuación: 0,000; Nivel 1: 0,429; Nivel 2: 0,000; Nivel 3: 0,000; Nivel 4: 0,000; Nivel 5: 0,000; Nivel 6: 0,000; Nivel 7: 0,000; Nivel 8: 0,000; Nivel 9: 0,000; Fecha: 01-06-2019
