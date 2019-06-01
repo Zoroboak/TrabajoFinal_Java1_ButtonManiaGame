@@ -170,7 +170,7 @@ public class console {
 				
 				cont=0;
 				
-				opc = getDato("¿Quieres seguir jugando ? (1 para Si, -1 para No)",2);
+				opc = getDato("¿Quieres seguir jugando ? (1 para Si, -1 para No) : ",2);
 				if(opc==1){
 					ultimaJugada="0 0";
 					opcmenu=2; //nuevo tablero
@@ -244,7 +244,7 @@ public class console {
 				calificacionVisual[nivel]= 0.00f;
 				
 				opcmenu = 4;
-				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil",3);
+				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil: ",3);
 				nivel=opc; 
 				System.out.println("Se ha cambiado a nivel "+nivel+", correctamente");
 				System.out.println();
@@ -292,7 +292,7 @@ public class console {
 		String jugador;
 		int opc;
 		try {
-			opc = getDato("Quieres guardar tus calificaciones?  (1 para Si, 0 para No) ",4);
+			opc = getDato("Quieres guardar tus calificaciones?  (1 para Si, 0 para No): ",4);
 			if(opc==1){
 				jugador = getDato("Introduce tu nombre: ");
 				service.process.guardarCalificaciones(jugador, calificacionNivel);
@@ -454,7 +454,7 @@ public class console {
 					if(aux>1||aux<-1 || aux ==0) {
 					 
 						v = false; 
-						System.out.print("Introduce un 1 para marcar SI o un -1 para marcar NO");
+						System.out.println("Introduce un 1 para marcar SI o un -1 para marcar NO");
 					}
 				}catch (Exception e) {
 					System.out.println("¡El caracter introducido no es valido!");
@@ -508,7 +508,7 @@ public class console {
 					if(aux>1||aux<0) {
 					 
 						v = false; 
-						System.out.print("Introduce un 1 para marcar SI o un 0 para marcar NO");
+						System.out.println("Introduce un 1 para marcar SI o un 0 para marcar NO");
 					}
 				}catch (Exception e) {
 					System.out.println("¡El caracter introducido no es valido!");
