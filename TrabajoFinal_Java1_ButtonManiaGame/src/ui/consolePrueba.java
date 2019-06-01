@@ -56,6 +56,7 @@ public class consolePrueba {
 					calificacionNivel[nivel] *=puntuacion;
 					
 				}
+				ultimaJugada = "0 0";
 				calificacionVisual[nivel]= 0;
 				matrizTablero = service.process.generarMatriz(); 
 				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
@@ -65,7 +66,7 @@ public class consolePrueba {
 				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
 				cont = 0;
 			}else if(opcmenu==1){ //Si se esta recomenzando: 
-				
+				ultimaJugada = "0 0";
 				calificacionVisual[nivel]= 0;
 				System.out.println("Recomenzando");
 				//matrizTablero = matrizTableroCopia.clone();
@@ -242,6 +243,7 @@ public class consolePrueba {
 				
 				opcmenu = 4;
 				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil",3);
+				ultimaJugada = "0 0";
 				nivel=opc; 
 				System.out.println("Se ha cambiado a nivel "+nivel+", correctamente");
 				System.out.println();
