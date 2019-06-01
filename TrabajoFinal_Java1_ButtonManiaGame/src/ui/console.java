@@ -202,7 +202,9 @@ public class console {
 				System.out.println("| 8- Imposible (24 golpes): "+formateador.format(calificacionNivel[8])+"                                             |");
 				System.out.println("| 9- Diez en progra (27 golpes): "+formateador.format(calificacionNivel[9])+"                                 |");
 				System.out.println("|                                                                           |");
-				System.out.print("| ¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No ):              |");
+				System.out.println("+---------------------------------------------------------------------------+");
+				
+				System.out.print(" ¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No ):");
 				int op =0;
 				try {
 					op= sc.nextInt();
@@ -397,7 +399,7 @@ public class console {
 							myString = "0";
 							
 							//Mostrar texto pasado por parametro
-							System.out.println(string);
+							System.out.print(string);
 							//aux = sc.nextInt();
 							text = sc.nextLine();
 							text+=text+"   ";//Me aseguro que el string nunca sea de menos de 3 caracteres
@@ -447,12 +449,12 @@ public class console {
 				try {
 					v = true;
 					//Mostrar texto pasado por parametro
-					System.out.println(string);
+					System.out.print(string);
 					aux = sc.nextInt();
 					if(aux>1||aux<-1 || aux ==0) {
 					 
 						v = false; 
-						System.out.println("Introduce un 1 para marcar SI o un -1 para marcar NO");
+						System.out.print("Introduce un 1 para marcar SI o un -1 para marcar NO");
 					}
 				}catch (Exception e) {
 					System.out.println("¡El caracter introducido no es valido!");
@@ -468,7 +470,7 @@ public class console {
 					//Doy por supuesto que el valor introducido es correcto
 					v = true; 
 					//Mostrar texto pasado por parametro
-					System.out.println(string);
+					System.out.print(string);
 					
 					//Pido una Palabra y me quedo con la primera letra
 					auxs = sc.next();
@@ -501,12 +503,12 @@ public class console {
 				try {
 					v = true;
 					//Mostrar texto pasado por parametro
-					System.out.println(string);
+					System.out.print(string);
 					aux = sc.nextInt();
 					if(aux>1||aux<0) {
 					 
 						v = false; 
-						System.out.println("Introduce un 1 para marcar SI o un 0 para marcar NO");
+						System.out.print("Introduce un 1 para marcar SI o un 0 para marcar NO");
 					}
 				}catch (Exception e) {
 					System.out.println("¡El caracter introducido no es valido!");
