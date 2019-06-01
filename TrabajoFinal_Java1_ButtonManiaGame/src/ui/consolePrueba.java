@@ -170,11 +170,11 @@ public class consolePrueba {
 				
 				cont=0;
 				
-				opc = getDato("¿Quieres jugar otro tablero? (1 para Si, 0 para No)",2);
+				opc = getDato("¿Quieres cambiar de nivel? (1 para Si, 0 para No)",2);
 				if(opc==1){
-					opcmenu=2; //nuevo tablero
+					opcmenu=4; //cambiar nivel
 				}else if(opc==0){
-					opcmenu=-2; //salir
+					opcmenu=2; //nueva partida
 				}
 				
 			}
