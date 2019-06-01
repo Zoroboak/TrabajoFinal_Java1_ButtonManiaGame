@@ -56,7 +56,6 @@ public class consolePrueba {
 					calificacionNivel[nivel] *=puntuacion;
 					
 				}
-				ultimaJugada = "0 0";
 				calificacionVisual[nivel]= 0;
 				matrizTablero = service.process.generarMatriz(); 
 				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
@@ -66,7 +65,7 @@ public class consolePrueba {
 				matrizTablero = generarNuevaPartida(nivel, matriz, matrizTableroCopia);
 				cont = 0;
 			}else if(opcmenu==1){ //Si se esta recomenzando: 
-				ultimaJugada = "0 0";
+				
 				calificacionVisual[nivel]= 0;
 				System.out.println("Recomenzando");
 				//matrizTablero = matrizTableroCopia.clone();
@@ -171,11 +170,12 @@ public class consolePrueba {
 				
 				cont=0;
 				
-				opc = getDato("¿Quieres cambiar de nivel? (1 para Si, 0 para No)",2);
+				opc = getDato("¿Quieres seguir jugando ? (1 para Si, -1 para No) : ",2);
 				if(opc==1){
-					opcmenu=4; //cambiar nivel
-				}else if(opc==0){
-					opcmenu=2; //nueva partida
+					ultimaJugada="0 0";
+					opcmenu=2; //nuevo tablero
+				}else if(opc==-1){
+					opcmenu=-2; //salir
 				}
 				
 			}
@@ -202,7 +202,9 @@ public class consolePrueba {
 				System.out.println("| 8- Imposible (24 golpes): "+formateador.format(calificacionNivel[8])+"                                             |");
 				System.out.println("| 9- Diez en progra (27 golpes): "+formateador.format(calificacionNivel[9])+"                                 |");
 				System.out.println("|                                                                           |");
-				System.out.print("| ¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No ):              |");
+				System.out.println("+---------------------------------------------------------------------------+");
+				
+				System.out.print(" ¿ Borrar todas las calificaciones ? (1 para Sí, 0 para No ):");
 				int op =0;
 				try {
 					op= sc.nextInt();
@@ -242,8 +244,7 @@ public class consolePrueba {
 				calificacionVisual[nivel]= 0.00f;
 				
 				opcmenu = 4;
-				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil",3);
-				ultimaJugada = "0 0";
+				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil: ",3);
 				nivel=opc; 
 				System.out.println("Se ha cambiado a nivel "+nivel+", correctamente");
 				System.out.println();
@@ -291,11 +292,14 @@ public class consolePrueba {
 		String jugador;
 		int opc;
 		try {
-			opc = getDato("Quieres guardar tus calificaciones?  (1 para Si, 0 para No) ",2);
+			opc = getDato("Quieres guardar tus calificaciones?  (1 para Si, 0 para No): ",4);
 			if(opc==1){
 				jugador = getDato("Introduce tu nombre: ");
 				service.process.guardarCalificaciones(jugador, calificacionNivel);
 				System.out.println("Se ha guardado la partida correctamente");
+			}
+			else {
+				
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -395,7 +399,7 @@ public class consolePrueba {
 							myString = "0";
 							
 							//Mostrar texto pasado por parametro
-							System.out.println(string);
+							System.out.print(string);
 							//aux = sc.nextInt();
 							text = sc.nextLine();
 							text+=text+"   ";//Me aseguro que el string nunca sea de menos de 3 caracteres
@@ -440,16 +444,17 @@ public class consolePrueba {
 			} while (!v);
 			break;
 		
-		case 2: // Parametro 2: Valida la introduci�n de una desici�n, devuelve 1 para SI y 0 para NO, devuelve el valor en un entero
+		case 2: // Parametro 2: Valida la introduci�n de una desici�n, devuelve 1 para SI y -1 para NO, devuelve el valor en un entero
 			do {
 				try {
 					v = true;
 					//Mostrar texto pasado por parametro
-					System.out.println(string);
+					System.out.print(string);
 					aux = sc.nextInt();
-					if(aux>1||aux<0) {
+					if(aux>1||aux<-1 || aux ==0) {
+					 
 						v = false; 
-						System.out.println("Introduce un 1 para marcar SI o un 0 para marcar NO");
+						System.out.println("Introduce un 1 para marcar SI o un -1 para marcar NO");
 					}
 				}catch (Exception e) {
 					System.out.println("¡El caracter introducido no es valido!");
@@ -465,7 +470,7 @@ public class consolePrueba {
 					//Doy por supuesto que el valor introducido es correcto
 					v = true; 
 					//Mostrar texto pasado por parametro
-					System.out.println(string);
+					System.out.print(string);
 					
 					//Pido una Palabra y me quedo con la primera letra
 					auxs = sc.next();
@@ -491,6 +496,29 @@ public class consolePrueba {
 			//Pasamos de String a entero
 			aux = Integer.parseInt(auxs);
 			break;
+			
+			
+		case 4: // Parametro 4: Valida la introduci�n de una desici�n, devuelve 1 para SI y 0 para NO, devuelve el valor en un entero
+			do {
+				try {
+					v = true;
+					//Mostrar texto pasado por parametro
+					System.out.print(string);
+					aux = sc.nextInt();
+					if(aux>1||aux<0) {
+					 
+						v = false; 
+						System.out.println("Introduce un 1 para marcar SI o un 0 para marcar NO");
+					}
+				}catch (Exception e) {
+					System.out.println("¡El caracter introducido no es valido!");
+					sc.next();
+					v=false;
+				}
+			} while (!v);
+			break;
+	
+			
 		}
 		
 		return aux;
