@@ -170,10 +170,10 @@ public class console {
 				
 				cont=0;
 				
-				opc = getDato("¿Quieres jugar otro tablero? (1 para Si, 0 para No)",2);
+				opc = getDato("¿Quieres seguir jugando ? (1 para Si, -1 para No)",2);
 				if(opc==1){
 					opcmenu=2; //nuevo tablero
-				}else if(opc==0){
+				}else if(opc==-1){
 					opcmenu=-2; //salir
 				}
 				
@@ -289,11 +289,14 @@ public class console {
 		String jugador;
 		int opc;
 		try {
-			opc = getDato("Quieres guardar tus calificaciones?  (1 para Si, 0 para No) ",2);
+			opc = getDato("Quieres guardar tus calificaciones?  (1 para Si, 0 para No) ",4);
 			if(opc==1){
 				jugador = getDato("Introduce tu nombre: ");
 				service.process.guardarCalificaciones(jugador, calificacionNivel);
 				System.out.println("Se ha guardado la partida correctamente");
+			}
+			else {
+				
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -438,16 +441,17 @@ public class console {
 			} while (!v);
 			break;
 		
-		case 2: // Parametro 2: Valida la introduci�n de una desici�n, devuelve 1 para SI y 0 para NO, devuelve el valor en un entero
+		case 2: // Parametro 2: Valida la introduci�n de una desici�n, devuelve 1 para SI y -1 para NO, devuelve el valor en un entero
 			do {
 				try {
 					v = true;
 					//Mostrar texto pasado por parametro
 					System.out.println(string);
 					aux = sc.nextInt();
-					if(aux>1||aux<0) {
+					if(aux>1||aux<-1 || aux ==0) {
+					 
 						v = false; 
-						System.out.println("Introduce un 1 para marcar SI o un 0 para marcar NO");
+						System.out.println("Introduce un 1 para marcar SI o un -1 para marcar NO");
 					}
 				}catch (Exception e) {
 					System.out.println("¡El caracter introducido no es valido!");
@@ -489,6 +493,29 @@ public class console {
 			//Pasamos de String a entero
 			aux = Integer.parseInt(auxs);
 			break;
+			
+			
+		case 4: // Parametro 4: Valida la introduci�n de una desici�n, devuelve 1 para SI y 0 para NO, devuelve el valor en un entero
+			do {
+				try {
+					v = true;
+					//Mostrar texto pasado por parametro
+					System.out.println(string);
+					aux = sc.nextInt();
+					if(aux>1||aux<0) {
+					 
+						v = false; 
+						System.out.println("Introduce un 1 para marcar SI o un 0 para marcar NO");
+					}
+				}catch (Exception e) {
+					System.out.println("¡El caracter introducido no es valido!");
+					sc.next();
+					v=false;
+				}
+			} while (!v);
+			break;
+	
+			
 		}
 		
 		return aux;
