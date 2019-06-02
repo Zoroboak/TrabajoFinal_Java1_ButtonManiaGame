@@ -1,6 +1,6 @@
-/* Valdearcos Trenas, AndrÃ©s */
-/* PÃ©rez SÃ¡nchez, Pedro Daniel */
-/* Prieto Parrilla, ElÃ­as */
+/* Valdearcos Trenas, Andrés */
+/* Pérez Sánchez, Pedro Daniel */
+/* Prieto Parrilla, Elías */
 /*David*/
 
 
@@ -12,8 +12,8 @@ import java.text.DecimalFormat;
 
 
 /**
- * Esta clase contiene mÃ©todos de comprobaciÃ³n, guardado, generar y el de jugadas. 
- * @author AndrÃ©s Valdearcos Trenas, ElÃ­as Prieto Parrilla, Pedro Daniel PÃ©rez SÃ¡nchez
+ * Esta clase contiene métodos de comprobación, guardado, generar y el de jugadas. 
+ * @author Andrés Valdearcos Trenas, Elías Prieto Parrilla, Pedro Daniel Pérez Sánchez
  * @version 02/06/2019
  *
  */
@@ -21,8 +21,8 @@ public class process {
 	
 	
 	/**
-	 * MÃ©todo que genera el tablero relleno de 0s.
-	 * @return El tablero con la matrÃ­z rellena de 0s.
+	 * Método que genera el tablero relleno de 0s.
+	 * @return El tablero con la matriz rellena de 0s.
 	 */
 	
 	
@@ -41,9 +41,9 @@ public class process {
 	
 	
 	/**
-	 * MÃ©todo que resetea todos los valores del tablero a 0.
+	 * Método que resetea todos los valores del tablero a 0.
 	 * @param matriz El tablero a resetear.
-	 * @return El tablero con la matrÃ­z reseteada.
+	 * @return El tablero con la matriz reseteada.
 	 */
 	
 	
@@ -60,7 +60,7 @@ public class process {
 
 	
 	/**
-	 * MÃ©todo que genera de forma inversa (dado un golpe incrementa el valor de las casillas) una partida con los mismos golpes siempre.
+	 * Método que genera de forma inversa (dado un golpe incrementa el valor de las casillas) una partida con los mismos golpes siempre.
 	 * Dichos golpes son los siguientes: 
 	 * 			int nivel_fil[] = {1,5,6,3,3,3,3,1,2,3,5,6,1,2,3,4,5,6,1,2,4,6,5,2,3,4,1};
 				int nivel_col[] = {3,4,2,4,4,4,4,3,4,6,3,2,1,4,5,6,3,1,2,3,4,5,6,3,2,6,5};
@@ -123,7 +123,7 @@ public class process {
 	
 	
 	/**
-	 * MÃ©todo que genera de forma inversa (dado un golpe incrementa el valor de las casillas) una partida de forma aleatoria.
+	 * Método que genera de forma inversa (dado un golpe incrementa el valor de las casillas) una partida de forma aleatoria.
 	 * @param matriz El tablero a rellenar.
 	 * @param nivel El nivel de juego del tablero actual.
 	 * @return El tablero generado de forma aleatoria dependiendo del nivel recibido.
@@ -181,9 +181,9 @@ public class process {
 	
 
 	/**
-	 * MÃ©todo que comprueba si se ha ganado o no.
+	 * Método que comprueba si se ha ganado o no.
 	 * @param matrizTablero El tablero con el golpe realizado.
-	 * @return Devuelve un booleano que si es true, ha ganado y si es false, no ha ganado todavÃ­a.
+	 * @return Devuelve un booleano que sí es true, ha ganado y sí es false, no ha ganado todavía.
 	 */
 	
 	
@@ -205,7 +205,7 @@ public class process {
 
 
 	/**
-	 * MÃ©todo que simula la jugada del usuario sobre el tablero.
+	 * Método que simula la jugada del usuario sobre el tablero.
 	 * @param opc El golpe realizado.
 	 * @param matrizTablero El tablero con el golpe realizado.
 	 */
@@ -261,7 +261,7 @@ public class process {
 
 	
 	/**
-	 * MÃ©todo que borra las calificaciones de todos los niveles. 
+	 * Método que borra las calificaciones de todos los niveles. 
 	 * @param calificacionNivel Todas las calificaciones de todos los niveles.
 	 */
 	
@@ -277,24 +277,19 @@ public class process {
 	
 	
 	/**
-	 * MÃ©todo que guarda todas las calificaciones de todos los niveles en el fichero.
+	 * Método que guarda todas las calificaciones de todos los niveles en el fichero.
 	 * @param jugador El nombre del usuario que ha jugado la partida.
-	 * @param calificacionNivel La califaciÃ³n obtenida en cada nivel.
+	 * @param calificacionNivel La califación obtenida en cada nivel.
 	 */
 	
 	
 	public static void guardarCalificaciones(String jugador, float[] calificacionNivel) {
 		
 		
-		//obtener la fecha a travï¿½s de Gregorian calendar
 		Calendar c1 = GregorianCalendar.getInstance();
-		//obtengo un conversor que permite pasar calendar a String
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-		//le formateo para obtener un String a travï¿½s de la fecha
 		String fecha =sdf.format(c1.getTime());
-		// esto es simplemente para comprobar que la saca bien
-		//System.out.println("fecha actual: "+fecha);
-		
+
 		DecimalFormat formateador = new DecimalFormat("0.000");
 		float puntuacion = 1;
 		String puntuacionString = "";
@@ -304,7 +299,7 @@ public class process {
 		}
 		
 		puntuacionString = 
-				"PuntuaciÃ³n: "+formateador.format(puntuacion)+"; "+
+				"Puntuación: "+formateador.format(puntuacion)+"; "+
 				"Nivel 1: "+formateador.format(calificacionNivel[1])+"; "+
 				"Nivel 2: "+formateador.format(calificacionNivel[2])+"; "+
 				"Nivel 3: "+formateador.format(calificacionNivel[3])+"; "+

@@ -1,6 +1,6 @@
-/* Valdearcos Trenas, AndrÃ©s */
-/* PÃ©rez SÃ¡nchez, Pedro Daniel */
-/* Prieto Parrilla, ElÃ­as */
+/* Valdearcos Trenas, Andrés */
+/* Pérez Sánchez, Pedro Daniel */
+/* Prieto Parrilla, Elías */
 /*David*/
 
 
@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
 
 /**
  * Esta clase es la clase de pruebas del juego.
- * @author  AndrÃ©s Valdearcos Trenas, ElÃ­as Prieto Parrilla, Pedro Daniel PÃ©rez SÃ¡nchez
+ * @author  Andrés Valdearcos Trenas, Elías Prieto Parrilla, Pedro Daniel Pérez Sánchez
  * @version 03/06/2019
  */
 
@@ -21,14 +21,14 @@ public class PedroPerezPrueba {
 	
 
 	/**
-	 * Este mÃ©todo es el principal en el que transcurre la ejecuciÃ³n del programa.
+	 * Este Método es el principal en el que transcurre la ejecución del programa.
 	 * @param args : argumentos que se le puede pasar. En este caso, no le pasamos.
 	 */
 	
 	
 	public static void main(String[] args) {
 		
-		//Declaraciï¿½nes del main
+		//Declaraciones del main
 		int nivel =  5;  //por defecto nivel normal [1-9]
 		int[][] matriz = service.process.generarMatriz(); //Generar matriz todo a 0 por defecto 
 		//String jugador = "Player";
@@ -39,7 +39,7 @@ public class PedroPerezPrueba {
 		int opcmenu = 2; //variable temporal que usamos para transportar valores del menu, por defecto su valor es "2"
 		/* opcmenu = 1 //Se esta recomenzando
 		   opcmenu = 2 //Se ha iniciado una nueva partida
-		   opcmenu = 3 //Se ha solicitado la calificaciï¿½n
+		   opcmenu = 3 //Se ha solicitado la calificación
 		   opcmenu = 4 //Se ha solicitado cambio de nivel
 		   opcmenu = -2 //se sale 
 		*/
@@ -51,7 +51,7 @@ public class PedroPerezPrueba {
 		int[][] matrizTablero = new int[8][8];
 		int[][] matrizTableroCopia = new int[8][8];
 		int opc = 0; // Variable auxiliar que se usa para menus
-		float puntuacion = 0; //Variable que usamos para almacenar la puntuaciï¿½n
+		float puntuacion = 0; //Variable que usamos para almacenar la puntuación
 		String ultimaJugada = "0 0"; // Variable donde almacenamos la ultima jugada del tablero
 		boolean[]nivelJugado= {false,false,false,false,false,false,false,false,false,false,false}; 
 		float calificacionZero = 0.00f;
@@ -61,8 +61,6 @@ public class PedroPerezPrueba {
 		//Bucle Partida
 		do{
 			
-			//Reseteo el contador de golpess
-			//cont = 0;
 			//Compruebo que tipo de partida es
 			if(opcmenu==2){ //Si es una nueva partida:
 				if(cont!=0) {
@@ -83,7 +81,6 @@ public class PedroPerezPrueba {
 				
 				calificacionVisual[nivel]= 0;
 				System.out.println("Recomenzando");
-				//matrizTablero = matrizTableroCopia.clone();
 				for (int i = 0; i < matrizTableroCopia.length; i++) {
 					for (int j = 0; j < matrizTableroCopia.length; j++) {
 						matrizTablero[i][j] = matrizTableroCopia[i][j];
@@ -102,7 +99,7 @@ public class PedroPerezPrueba {
 				opc = interfaz(matrizTablero, nivel, cont,true,calificacionVisual,ultimaJugada);//debe validar la entrada (opc menu o jugada valida)
 				
 				ultimaJugada=opc/10+" "+opc%10;
-				//Comprobamos si el caracter introducido es entrada de menu
+				//Comprobamos si el caracter introducido es entrada de menú
 				if ((opc==1)||(opc==2)||(opc==3)||(opc==4)||(opc==-2)){
 					menu=true;
 					switch(opc) {
@@ -114,7 +111,7 @@ public class PedroPerezPrueba {
 						opcmenu = 2;
 						break;
 
-						case 3: //Calificaciï¿½n
+						case 3: //calificación
 						opcmenu = 3;
 						break;
 
@@ -176,8 +173,8 @@ public class PedroPerezPrueba {
 				
 				
 				
-				System.out.println("Â¡Felicidades! Terminaste el tablero en "+cont+" golpes");
-				System.out.println("Tu calificaciÃ³n en este nivel es de "+puntuacion+" puntos");
+				System.out.println("¡Felicidades! Terminaste el tablero en "+cont+" golpes");
+				System.out.println("Tu calificación en este nivel es de "+puntuacion+" puntos");
 				System.out.println();
 				System.out.println();
 			
@@ -185,7 +182,7 @@ public class PedroPerezPrueba {
 				
 				cont=0;
 				
-				opc = getDato("Â¿Quieres seguir jugando ? (1 para Si, -1 para No) : ",2);
+				opc = getDato("¿Quieres seguir jugando ? (1 para Si, -1 para No) : ",2);
 				if(opc==1){
 					ultimaJugada="0 0";
 					opcmenu=2; //nuevo tablero
@@ -207,25 +204,25 @@ public class PedroPerezPrueba {
 				System.out.println("+---------------------------------------------------------------------------+");
 				System.out.println("| Calificaciones:                                                           |");
 				System.out.println("|                                                                           |");
-				System.out.println("| 1- Para bebÃ©s (3 golpes): "+formateador.format(calificacionNivel[1])+"                                            |");
+				System.out.println("| 1- Para bebés (3 golpes): "+formateador.format(calificacionNivel[1])+"                                            |");
 				System.out.println("| 2- Aprendizaje (6 golpes): "+formateador.format(calificacionNivel[2])+"                                            |");
 				System.out.println("| 3- Simple (9 golpes): "+formateador.format(calificacionNivel[3])+"                                                 |");
 				System.out.println("| 4- Casi normal (12 golpes): "+formateador.format(calificacionNivel[4])+"                                           |");
 				System.out.println("| 5- Normal (15 golpes): "+formateador.format(calificacionNivel[5])+"                                                |");
-				System.out.println("| 6- DifÃ­cil (18 golpes): "+formateador.format(calificacionNivel[6])+"                                               |");
+				System.out.println("| 6- Difícil (18 golpes): "+formateador.format(calificacionNivel[6])+"                                               |");
 				System.out.println("| 7- Puto amo (21 golpes): "+formateador.format(calificacionNivel[7])+"                                              |");
 				System.out.println("| 8- Imposible (24 golpes): "+formateador.format(calificacionNivel[8])+"                                             |");
 				System.out.println("| 9- Diez en progra (27 golpes): "+formateador.format(calificacionNivel[9])+"                                 |");
 				System.out.println("|                                                                           |");
 				System.out.println("+---------------------------------------------------------------------------+");
 				
-				System.out.print(" Â¿ Borrar todas las calificaciones ? (1 para SÃ­, 0 para No ):");
+				System.out.print(" ¿ Borrar todas las calificaciones ? (1 para Sí­, 0 para No ):");
 				int op =0;
 				try {
 					op= sc.nextInt();
 				}
 				catch(Exception e) {
-					System.out.println("No se puede introducir otra cosa que no sea un nÃºmero.");
+					System.out.println("No se puede introducir otra cosa que no sea un número.");
 					
 					op =0;
 				}
@@ -236,7 +233,7 @@ public class PedroPerezPrueba {
 					service.process.borrarCalificaciones(calificacionNivel);
 				}
 				else {
-					System.out.println("El nÃºmero solamente puede ser un 0 o un 1. Introduzca de nuevo: ");
+					System.out.println("El número solamente puede ser un 0 o un 1. Introduzca de nuevo: ");
 					op= sc.nextInt();
 				}
 				System.out.println();
@@ -259,7 +256,8 @@ public class PedroPerezPrueba {
 				calificacionVisual[nivel]= 0.00f;
 				
 				opcmenu = 4;
-				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, mÃ¡s difÃ­cil: ",3);
+				mostrarMenu();
+				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil: ",3);
 				nivel=opc; 
 				System.out.println("Se ha cambiado a nivel "+nivel+", correctamente");
 				System.out.println();
@@ -290,9 +288,35 @@ public class PedroPerezPrueba {
 		
 	
 	}
+	
+	
+	/**
+	 * Método que muestra las opciones posibles para elegir del nivel. 
+	 */
+	
+	
+	public static void mostrarMenu () {
+		
+		System.out.println();
+		System.out.println("Niveles posibles: ");
+		System.out.println("------------------------------------------");
+		System.out.println("Para bebés (3 golpes)");
+		System.out.println("Aprendizaje (6 golpes)");
+		System.out.println("Simple (9 golpes)");
+		System.out.println("Casi normal (12 golpes)");
+		System.out.println("Normal (15 golpes)");
+		System.out.println("Difícil (18 golpes)");
+		System.out.println("Puto amo (21 golpes)");
+		System.out.println("Imposible (24 golpes)");
+		System.out.println("Diez en Progra (27 golpes)");
+		System.out.println("------------------------------------------");
+		
+		
+	}
+	
 
 	/**
-	 * MÃ©todo que genera una nueva partida llamando al mÃ©todo generarPartidaPruebas.
+	 * Método que genera una nueva partida llamando al Método generarPartidaPruebas.
 	 * La partida se genera forzosamente con las siguientes posiciones:
 	 * 				int nivel_fil[] = {1,5,6,3,3,3,3,1,2,3,5,6,1,2,3,4,5,6,1,2,4,6,5,2,3,4,1};
 					int nivel_col[] = {3,4,2,4,4,4,4,3,4,6,3,2,1,4,5,6,3,1,2,3,4,5,6,3,2,6,5};
@@ -342,7 +366,7 @@ public class PedroPerezPrueba {
 	
 	
 	/**
-	 * MÃ©todo que comprueba si el dato que recibe (el nombre para guardar la partida) es correcto.
+	 * Método que comprueba si el dato que recibe (el nombre para guardar la partida) es correcto.
 	 * @param string El nombre para guardar la partida.
 	 * @return El nombre para poder guardar las calificaciones. 
 	 */
@@ -375,13 +399,13 @@ public class PedroPerezPrueba {
 				for (int i = 0; i < auxs.length(); i++) {
 					if((auxs.charAt(i)>=48)&&(auxs.charAt(i)<=57)) {
 						i=auxs.length();
-						System.out.println("Debes introducir un nombre entre 3 y 15 caracteres, no numeros");
+						System.out.println("Debes introducir un nombre entre 3 y 15 caracteres, no números");
 						v=false;
 					}
 				}
 			}
 			catch(Exception e){
-				System.out.println("Â¡La palabra introducida no es valida!");
+				System.out.println("¡La palabra introducida no es valida!");
 				sc.next();
 				v=false;
 			}
@@ -393,13 +417,13 @@ public class PedroPerezPrueba {
 
 
 	/**
-	 * MÃ©todo que segÃºn el parÃ¡metro que se pase, valida para la interfaz del juego.
-	 * @param string Palabras que recibe la lÃ­nea de texto para cada caso.
+	 * Método que según el parámetro que se pase, valida para la interfaz del juego.
+	 * @param string Palabras que recibe la línea de texto para cada caso.
 	 * @param parametro Cuando es un 1, verifica si se introduce bien o no la fila y columna del golpe realizado.
 	 * 					Cuando es un 2, verifica que si se introduce bien el rango de salir o no. 
 	 * 					Cuando es un 3, verifica que el rango del cambio de nivel es correcto.
 	 * 					Cuando es un 4, verifica para que se meta bien el rango de guardar o no guardar. 
-	 * @return La opciÃ³n ya verificada en su rango correcto. 
+	 * @return La opción ya verificada en su rango correcto. 
 	 */
 	
 	
@@ -407,21 +431,20 @@ public class PedroPerezPrueba {
 		
 		
 		/*
-		 * Parametro 1: Solicita y valida una opciï¿½n valida para la interfaz del juego
-		 * menu [1||2||3||4||-2] o posiciï¿½n valida del tablero ([1][1] hasta [6][6])
+		 * Parametro 1: Solicita y valida una opción valida para la interfaz del juego
+		 * menu [1||2||3||4||-2] o posición valida del tablero ([1][1] hasta [6][6])
 		 * 
-		 * Parametro 2: Valida la introduciï¿½n de una desiciï¿½n, 1 para SI y 0 para NO, devuelve el valor en un entero
+		 * Parametro 2: Valida la introdución de una desición, 1 para SI y 0 para NO, devuelve el valor en un entero
 		 * 
 		 * Parametro 3: Metodo devuelve un numero dado por el usuario
 		 * en el rango [0-9]
 		 * 
 		 * 
 		 * El metodo muestra por pantalla el texto que le pasemos 
-		 * devuelve un string con la salida validada segï¿½n el parametro pasado
+		 * devuelve un string con la salida validada según el parametro pasado
 		 * 
 		 * */
 		
-		//Declaro el objeto Scanner
 	
 		boolean v = true;
 		String auxs = null;
@@ -435,8 +458,8 @@ public class PedroPerezPrueba {
 		
 		switch (parametro) {
 		case 1:
-			/*  Parametro 1: Solocita y valida una opciï¿½n valida para la interfaz del juego
-			 * menu [1||2||3||4||-2] o posiciï¿½n valida del tablero ([1][1] hasta [6][6]) */ 
+			/*  Parametro 1: Solocita y valida una opción valida para la interfaz del juego
+			 * menu [1||2||3||4||-2] o posición valida del tablero ([1][1] hasta [6][6]) */ 
 			
 			do {
 				try {
@@ -452,21 +475,18 @@ public class PedroPerezPrueba {
 							
 							//Mostrar texto pasado por parametro
 							System.out.print(string);
-							//aux = sc.nextInt();
 							text = sc.nextLine();
 							text+=text+"   ";//Me aseguro que el string nunca sea de menos de 3 caracteres
 							opc1[0] = text.charAt(0);
 							opc1[1] = text.charAt(2);
 							
 							myString = String.valueOf(opc1);
-		//					System.out.println(opc1);
-		//					System.out.println("My String: "+myString);
 							aux = Integer.parseInt(myString);
 							
 							
 							if(text.charAt(1)!=' '){
 								v = false; 
-								System.out.println("Â¡OpciÃ³n fuera de rango! debes introducir: (fila columna)");
+								System.out.println("¡opción fuera de rango! debes introducir: (fila columna)");
 							}else if (text.charAt(0)=='0'&&text.charAt(1)=='-'&&text.charAt(2)=='2') {
 								aux = -2;
 								//Rango Correcto
@@ -480,7 +500,7 @@ public class PedroPerezPrueba {
 									v = true;
 								}else {
 									v = false; 
-									System.out.println("Â¡OpciÃ³n fuera de rango! debes introducir: (fila columna)");
+									System.out.println("¡opción fuera de rango! debes introducir: (fila columna)");
 								}
 							}
 					}catch(Exception j) {
@@ -488,7 +508,7 @@ public class PedroPerezPrueba {
 						System.out.println(j.getMessage());
 					}
 				}catch (Exception e) {
-					System.out.println("Â¡Los caracteres introducidos no son validos!");
+					System.out.println("¡Los caracteres introducidos no son validos!");
 					System.out.println(e.getMessage());
 					sc.next();
 					v=false;
@@ -496,7 +516,7 @@ public class PedroPerezPrueba {
 			} while (!v);
 			break;
 		
-		case 2: // Parametro 2: Valida la introduciï¿½n de una desiciï¿½n, devuelve 1 para SI y -1 para NO, devuelve el valor en un entero
+		case 2: // Parametro 2: Valida la introdución de una desición, devuelve 1 para SI y -1 para NO, devuelve el valor en un entero
 			do {
 				try {
 					v = true;
@@ -509,7 +529,7 @@ public class PedroPerezPrueba {
 						System.out.println("Introduce un 1 para marcar SI o un -1 para marcar NO");
 					}
 				}catch (Exception e) {
-					System.out.println("Â¡El caracter introducido no es valido!");
+					System.out.println("¡El caracter introducido no es valido!");
 					sc.next();
 					v=false;
 				}
@@ -530,7 +550,7 @@ public class PedroPerezPrueba {
 					
 					//Si el rango no es correcto, repetimos el while
 					if(auxc<49||auxc>57) {
-						System.out.println("Â¡NÃºmero fuera de rango! Debes introducir un nivel en el rango [1-9]");
+						System.out.println("¡número fuera de rango! Debes introducir un nivel en el rango [1-9]");
 						v=false;
 						sc.next();
 					}
@@ -539,7 +559,7 @@ public class PedroPerezPrueba {
 					auxs = ""+auxc;
 				}
 				catch(Exception e){
-					System.out.println("Â¡El nÃºmero introducido no es valido!!");
+					System.out.println("¡El número introducido no es valido!!");
 					sc.next();
 					v=false;
 				}
@@ -550,7 +570,7 @@ public class PedroPerezPrueba {
 			break;
 			
 			
-		case 4: // Parametro 4: Valida la introduciï¿½n de una desiciï¿½n, devuelve 1 para SI y 0 para NO, devuelve el valor en un entero
+		case 4: // Parametro 4: Valida la introdución de una desición, devuelve 1 para SI y 0 para NO, devuelve el valor en un entero
 			do {
 				try {
 					v = true;
@@ -563,7 +583,7 @@ public class PedroPerezPrueba {
 						System.out.println("Introduce un 1 para marcar SI o un 0 para marcar NO");
 					}
 				}catch (Exception e) {
-					System.out.println("Â¡El caracter introducido no es valido!");
+					System.out.println("¡El caracter introducido no es valido!");
 					sc.next();
 					v=false;
 				}
@@ -578,14 +598,14 @@ public class PedroPerezPrueba {
 
 	
 	/**
-	 * MÃ©todo que muestra la interfaz en consola.
+	 * Método que muestra la interfaz en consola.
 	 * @param matrizTablero Pinta el tablero del juego.
 	 * @param nivel El que estamos jugando actualmente en el tablero.
-	 * @param cont El nÃºmero de golpes que llevamos durante el tablero. 
+	 * @param cont El número de golpes que llevamos durante el tablero. 
 	 * @param verdadero Es un true cuando es un golpe y es un false cuando se ha ganado. 
-	 * @param cal_level La calificaciÃ³n que llevamos en el tablero.
-	 * @param ultimaJugada El Ãºltimo golpe realizado en el anterior turno. 
-	 * @return El golpe realizado u la opciÃ³n.
+	 * @param cal_level La calificación que llevamos en el tablero.
+	 * @param ultimaJugada El último golpe realizado en el anterior turno. 
+	 * @return El golpe realizado u la opción.
 	 */
 	
 	
@@ -599,9 +619,9 @@ public class PedroPerezPrueba {
 		System.out.println();
 		System.out.println();
 		System.out.println("+----------------------------------------------------------------------------+");
-		System.out.println("| Recomenzar(01)  Nuevo(02)  CalificaciÃ³n(03)  Cambiar Nivel(04)  Salir(0-2) |");
+		System.out.println("| Recomenzar(01)  Nuevo(02)  Calificación(03)  Cambiar Nivel(04)  Salir(0-2) |");
 		System.out.println("|                                                                            |");
-		System.out.println("| Un golpe decrementar el valor de esa casilla en 1, y tambiÃ©n los           |");
+		System.out.println("| Un golpe decrementar el valor de esa casilla en 1, y también los           |");
 		System.out.println("| valores de sus 4 vecinas. Objetivo: Dejar todas las casillas en '0'        |");
 		System.out.println("|                                                                            |");
 		System.out.println("|                     C 1   2   3   4   5   6 C                              |");
@@ -618,7 +638,7 @@ public class PedroPerezPrueba {
 		}
 		System.out.println("|                   F +-----------------------+                              |");
 		System.out.println("|                                                                            |");
-		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          PuntuaciÃ³n en el nivel: "+formateador.format(cal_level[nivel])+"   |");
+		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"   |");
 		System.out.println("|                                                                            |");
 		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna): "+ultimaJugada+"      |");
 		System.out.println("|                                                                            |");
@@ -628,7 +648,7 @@ public class PedroPerezPrueba {
 		int aux=0;
 		
 		if(verdadero==true) {
-			aux = getDato("Introduce jugada u opciÃ³n del menÃº: ",1);
+			aux = getDato("Introduce jugada u opción del menú : ",1);
 		}
 		
 		return aux;
@@ -636,7 +656,7 @@ public class PedroPerezPrueba {
 	
 	
 	/**
-	 * MÃ©todo que contiene los nombres de cada nivel.
+	 * Método que contiene los nombres de cada nivel.
 	 * @param level El nivel actual sobre el que estamos jugando.
 	 * @return El nombre del nombre en el que estamos jugando. 
 	 */
@@ -647,7 +667,7 @@ public class PedroPerezPrueba {
 		String nombre_nivel=null;
 		
 		if (level == 1)
-			nombre_nivel = "Para bebÃ©s (3 golpes)";
+			nombre_nivel = "Para bebés (3 golpes)";
 		else if (level == 2)
 			nombre_nivel = "Aprendizaje (6 golpes)";
 		else if (level == 3)
@@ -657,7 +677,7 @@ public class PedroPerezPrueba {
 		else if (level == 5)
 			nombre_nivel = "Normal (15 golpes)";
 		else if (level ==6)
-			nombre_nivel = "DifÃ­cil (18 golpes)";
+			nombre_nivel = "Difícil (18 golpes)";
 		else if (level ==7)
 			nombre_nivel = "Puto amo (21 golpes)";
 		else if (level ==8)

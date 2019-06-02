@@ -1,7 +1,7 @@
-/**/
-/**/
-/**/
-/**/
+/* Valdearcos Trenas, Andrés */
+/* Pérez Sánchez, Pedro Daniel */
+/* Prieto Parrilla, Elías */
+/*David*/
 
 
 
@@ -11,8 +11,23 @@ import java.io.File;
 import java.io.*;
 
 
+/**
+ * Esta clase contiene la escritura de las puntuaciones del fichero. 
+ * @author Andrés Valdearcos Trenas, Elías Prieto Parrilla, Pedro Daniel Pérez Sánchez
+ * @version 02/06/2019
+ *
+ */
+
 public class fichero {
 
+	
+	/**
+	 * Método que escribe en el fichero las puntuaciones del jugador.
+	 * @param jugador Nombre del jugador que ha jugado la partida.
+	 * @param puntuacionStrng Puntuaciones del jugador.
+	 */
+	
+	
 	public static void escribirFichero(String jugador, String puntuacionString) {
 			
 	
