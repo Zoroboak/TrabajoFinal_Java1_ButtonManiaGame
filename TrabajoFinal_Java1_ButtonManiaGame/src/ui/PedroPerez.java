@@ -444,22 +444,22 @@ public class PedroPerez {
 							//Mostrar texto pasado por parametro
 							System.out.print(string);
 							text = sc.nextLine();
-							text+=text+"   ";//Me aseguro que el string nunca sea de menos de 3 caracteres
+							text+=text+"    ";//Me aseguro que el string nunca sea de menos de 3 caracteres
 							opc1[0] = text.charAt(0);
 							opc1[1] = text.charAt(2);
-							
-							myString = String.valueOf(opc1);
-							aux = Integer.parseInt(myString);
 							
 							
 							if(text.charAt(1)!=' '){
 								v = false; 
 								System.out.println("¡Opción fuera de rango! debes introducir: (fila columna)");
-							}else if (text.charAt(0)=='0'&&text.charAt(1)=='-'&&text.charAt(2)=='2') {
+							}else if (text.charAt(0)=='0'&&text.charAt(2)=='-'&&text.charAt(3)=='2') {
 								aux = -2;
 								//Rango Correcto
 								v = true;
 							}else {
+								myString = String.valueOf(opc1);
+								aux = Integer.parseInt(myString);
+								
 								if(aux<=4&&aux>=1) {
 									//Rango Correcto
 									v = true;
@@ -585,31 +585,31 @@ public class PedroPerez {
 		
 		System.out.println();
 		System.out.println();
-		System.out.println("+----------------------------------------------------------------------------+");
-		System.out.println("| Recomenzar(01)  Nuevo(02)  Calificación(03)  Cambiar Nivel(04)  Salir(0-2) |");
-		System.out.println("|                                                                            |");
-		System.out.println("| Un golpe decrementar el valor de esa casilla en 1, y también los           |");
-		System.out.println("| valores de sus 4 vecinas. Objetivo: Dejar todas las casillas en '0'        |");
-		System.out.println("|                                                                            |");
-		System.out.println("|                     C 1   2   3   4   5   6 C                              |");
-		System.out.println("|                   F +-----------------------+                              |");
+		System.out.println("+---------------------------------------------------------------------------------+");
+		System.out.println("| Recomenzar(0 1)  Nuevo(0 2)  Calificación(0 3)  Cambiar Nivel(0 4)  Salir(0 -2) |");
+		System.out.println("|                                                                                 |");
+		System.out.println("| Un golpe decrementar el valor de esa casilla en 1, y también los                |");
+		System.out.println("| valores de sus 4 vecinas. Objetivo: Dejar todas las casillas en '0'             |");
+		System.out.println("|                                                                                 |");
+		System.out.println("|                         C 1   2   3   4   5   6 C                               |");
+		System.out.println("|                       F +-----------------------+                               |");
 		for (int i = 1; i <= 6; i++) {
-			System.out.println("|                   "+i
+			System.out.println("|                       "+i
 					+ " | "+matrizTablero[i][1]
 					+ " | "+matrizTablero[i][2]
 					+ " | "+matrizTablero[i][3]
 					+ " | "+matrizTablero[i][4]
 					+ " | "+matrizTablero[i][5]
 					+ " | "+matrizTablero[i][6]
-					+ " |                              |");
+					+ " |                               |");
 		}
-		System.out.println("|                   F +-----------------------+                              |");
-		System.out.println("|                                                                            |");
-		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"   |");
-		System.out.println("|                                                                            |");
-		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna): "+ultimaJugada+"      |");
-		System.out.println("|                                                                            |");
-		System.out.println("+----------------------------------------------------------------------------+");
+		System.out.println("|                       F +-----------------------+                               |");
+		System.out.println("|                                                                                 |");
+		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"        |");
+		System.out.println("|                                                                                 |");
+		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna): "+ultimaJugada+"           |");
+		System.out.println("|                                                                                 |");
+		System.out.println("+---------------------------------------------------------------------------------+");
 		
 
 		int aux=0;
