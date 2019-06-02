@@ -11,35 +11,33 @@ import java.text.DecimalFormat;
 
 
 /**
- * Esta clase es la clase de pruebas del juego.
- * @author  Andrés Valdearcos Trenas, Elías Prieto Parrilla, Pedro Daniel Pérez Sánchez
+ * Esta clase contiene el método principal del programa y otros métodos.
+ * @author  Andrés Valdearcos Trenas, Elías Prieto Parrilla, David García Bermejo, Pedro Daniel Pérez Sánchez
  * @version 03/06/2019
  */
 
 public class PedroPerezPrueba {
 	public static Scanner sc= new Scanner (System.in);
 	
-
+	
 	/**
-	 * Este Método es el principal en el que transcurre la ejecución del programa.
+	 * Este método es el principal en el que transcurre la ejecución del programa.
 	 * @param args : argumentos que se le puede pasar. En este caso, no le pasamos.
 	 */
 	
 	
 	public static void main(String[] args) {
 		
-		//Declaraciones del main
-		int nivel =  5;  //por defecto nivel normal [1-9]
+		
+		int nivel =  5;  
 		int[][] matriz = service.process.generarMatriz(); //Generar matriz todo a 0 por defecto 
-		//String jugador = "Player";
 		float puntuacion_total=0f;
-		//Iniciando Partida
 		int cont = 0;
 		float calificacionNivel[] = {1,1,1,1,1,1,1,1,1,1,1}; //Vector que almacena los las puntuaciones de la partida
 		int opcmenu = 2; //variable temporal que usamos para transportar valores del menu, por defecto su valor es "2"
 		/* opcmenu = 1 //Se esta recomenzando
 		   opcmenu = 2 //Se ha iniciado una nueva partida
-		   opcmenu = 3 //Se ha solicitado la calificación
+		   opcmenu = 3 //Se ha solicitado la calificaciï¿½n
 		   opcmenu = 4 //Se ha solicitado cambio de nivel
 		   opcmenu = -2 //se sale 
 		*/
@@ -51,7 +49,7 @@ public class PedroPerezPrueba {
 		int[][] matrizTablero = new int[8][8];
 		int[][] matrizTableroCopia = new int[8][8];
 		int opc = 0; // Variable auxiliar que se usa para menus
-		float puntuacion = 0; //Variable que usamos para almacenar la puntuación
+		float puntuacion = 0; //Variable que usamos para almacenar la puntuaciï¿½n
 		String ultimaJugada = "0 0"; // Variable donde almacenamos la ultima jugada del tablero
 		boolean[]nivelJugado= {false,false,false,false,false,false,false,false,false,false,false}; 
 		float calificacionZero = 0.00f;
@@ -99,7 +97,7 @@ public class PedroPerezPrueba {
 				opc = interfaz(matrizTablero, nivel, cont,true,calificacionVisual,ultimaJugada);//debe validar la entrada (opc menu o jugada valida)
 				
 				ultimaJugada=opc/10+" "+opc%10;
-				//Comprobamos si el caracter introducido es entrada de menú
+				//Comprobamos si el caracter introducido es entrada de menu
 				if ((opc==1)||(opc==2)||(opc==3)||(opc==4)||(opc==-2)){
 					menu=true;
 					switch(opc) {
@@ -111,7 +109,7 @@ public class PedroPerezPrueba {
 						opcmenu = 2;
 						break;
 
-						case 3: //calificación
+						case 3: //Calificación
 						opcmenu = 3;
 						break;
 
@@ -127,9 +125,7 @@ public class PedroPerezPrueba {
 				}else{
 					//Si no es un menu, solo puede ser una jugada
 					try{
-						
-						
-						
+							
 						service.process.jugarFicha(opc,matrizTablero);
 						if(nivelJugado[nivel] == false) {
 							calificacionNivel[nivel]=1.00f;
@@ -182,7 +178,7 @@ public class PedroPerezPrueba {
 				
 				cont=0;
 				
-				opc = getDato("¿Quieres seguir jugando ? (1 para Si, -1 para No) : ",2);
+				opc = getDato("¿ Quieres seguir jugando ? (1 para Si, -1 para No) : ",2);
 				if(opc==1){
 					ultimaJugada="0 0";
 					opcmenu=2; //nuevo tablero
@@ -192,7 +188,7 @@ public class PedroPerezPrueba {
 				
 			}
 
-			if(opcmenu==03){
+			if(opcmenu==3){
 				
 				for(int j = 0; j < nivelJugado.length;j++) {
 					if(nivelJugado[j] == false)
@@ -256,8 +252,8 @@ public class PedroPerezPrueba {
 				calificacionVisual[nivel]= 0.00f;
 				
 				opcmenu = 4;
-				mostrarMenu();
-				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil: ",3);
+				mostrarPosiblesNiveles();
+				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil (Ejemplo: 3): ",3);
 				nivel=opc; 
 				System.out.println("Se ha cambiado a nivel "+nivel+", correctamente");
 				System.out.println();
@@ -295,31 +291,26 @@ public class PedroPerezPrueba {
 	 */
 	
 	
-	public static void mostrarMenu () {
-		
+	public static void mostrarPosiblesNiveles () {
 		System.out.println();
 		System.out.println("Niveles posibles: ");
 		System.out.println("------------------------------------------");
-		System.out.println("Para bebés (3 golpes)");
-		System.out.println("Aprendizaje (6 golpes)");
-		System.out.println("Simple (9 golpes)");
-		System.out.println("Casi normal (12 golpes)");
-		System.out.println("Normal (15 golpes)");
-		System.out.println("Difícil (18 golpes)");
-		System.out.println("Puto amo (21 golpes)");
-		System.out.println("Imposible (24 golpes)");
-		System.out.println("Diez en Progra (27 golpes)");
+		System.out.println("1 - Para bebés (3 golpes)");
+		System.out.println("2 - Aprendizaje (6 golpes)");
+		System.out.println("3 - Simple (9 golpes)");
+		System.out.println("4 - Casi normal (12 golpes)");
+		System.out.println("5 - Normal (15 golpes)");
+		System.out.println("6 - Difícil (18 golpes)");
+		System.out.println("7 - Puto amo (21 golpes)");
+		System.out.println("8 - Imposible (24 golpes)");
+		System.out.println("9 - Diez en Progra (27 golpes)");
 		System.out.println("------------------------------------------");
-		
 		
 	}
 	
-
+	
 	/**
-	 * Método que genera una nueva partida llamando al Método generarPartidaPruebas.
-	 * La partida se genera forzosamente con las siguientes posiciones:
-	 * 				int nivel_fil[] = {1,5,6,3,3,3,3,1,2,3,5,6,1,2,3,4,5,6,1,2,4,6,5,2,3,4,1};
-					int nivel_col[] = {3,4,2,4,4,4,4,3,4,6,3,2,1,4,5,6,3,1,2,3,4,5,6,3,2,6,5};
+	 * Método que genera una nueva partida llamando al método generarPartida.
 	 * @param nivel Lo pasamos para que genere una nueva partida de dicho nivel.
 	 * @param matriz con esta matriz hacemos que se establezca a 0 todas las filas y columnas de la matriz.
 	 * @param matrizTableroCopia para copiar en la matriz la nueva matriz obtenida aleatoriamente.
@@ -330,7 +321,6 @@ public class PedroPerezPrueba {
 	private static int[][] generarNuevaPartida(int nivel, int[][] matriz, int[][] matrizTableroCopia) {
 		int[][] matrizTablero;
 		matrizTablero = service.process.generarPartidaPruebas(matriz, nivel);
-		//matrizTableroCopia = matrizTablero.clone();
 		for (int i = 0; i < matrizTableroCopia.length; i++) {
 			for (int j = 0; j < matrizTableroCopia.length; j++) {
 				matrizTableroCopia[i][j] = matrizTablero[i][j];
@@ -350,7 +340,7 @@ public class PedroPerezPrueba {
 		String jugador;
 		int opc;
 		try {
-			opc = getDato("Quieres guardar tus calificaciones?  (1 para Si, 0 para No): ",4);
+			opc = getDato("Quieres guardar tus calificaciones?  (1 para Sí, 0 para No): ",4);
 			if(opc==1){
 				jugador = getDato("Introduce tu nombre: ");
 				service.process.guardarCalificaciones(jugador, calificacionNivel);
@@ -374,9 +364,6 @@ public class PedroPerezPrueba {
 	
 	private static String getDato(String string) {
 		
-		//El metodo devuelve el string introducido por el usuario en la consola
-
-		//Declaro el objeto Scanner
 		
 		boolean v = true;
 		String auxs = null;
@@ -399,7 +386,7 @@ public class PedroPerezPrueba {
 				for (int i = 0; i < auxs.length(); i++) {
 					if((auxs.charAt(i)>=48)&&(auxs.charAt(i)<=57)) {
 						i=auxs.length();
-						System.out.println("Debes introducir un nombre entre 3 y 15 caracteres, no números");
+						System.out.println("Debes introducir un nombre entre 3 y 15 caracteres, no numeros");
 						v=false;
 					}
 				}
@@ -415,7 +402,7 @@ public class PedroPerezPrueba {
 		return auxs;
 	}
 
-
+	
 	/**
 	 * Método que según el parámetro que se pase, valida para la interfaz del juego.
 	 * @param string Palabras que recibe la línea de texto para cada caso.
@@ -425,27 +412,10 @@ public class PedroPerezPrueba {
 	 * 					Cuando es un 4, verifica para que se meta bien el rango de guardar o no guardar. 
 	 * @return La opción ya verificada en su rango correcto. 
 	 */
-	
+
 	
 	private static int getDato(String string, int parametro) {
-		
-		
-		/*
-		 * Parametro 1: Solicita y valida una opción valida para la interfaz del juego
-		 * menu [1||2||3||4||-2] o posición valida del tablero ([1][1] hasta [6][6])
-		 * 
-		 * Parametro 2: Valida la introdución de una desición, 1 para SI y 0 para NO, devuelve el valor en un entero
-		 * 
-		 * Parametro 3: Metodo devuelve un numero dado por el usuario
-		 * en el rango [0-9]
-		 * 
-		 * 
-		 * El metodo muestra por pantalla el texto que le pasemos 
-		 * devuelve un string con la salida validada según el parametro pasado
-		 * 
-		 * */
-		
-	
+
 		boolean v = true;
 		String auxs = null;
 		char auxc = '0';
@@ -454,18 +424,16 @@ public class PedroPerezPrueba {
 		char[] opc1 = {'0','0'};
 		String myString = "0";
 		
-		
-		
+
 		switch (parametro) {
 		case 1:
-			/*  Parametro 1: Solocita y valida una opción valida para la interfaz del juego
-			 * menu [1||2||3||4||-2] o posición valida del tablero ([1][1] hasta [6][6]) */ 
+	 
 			
 			do {
 				try {
 					v = false;
 							try {
-							//Seteo todas las variables (Forma rapi
+							//Seteo todas las variables (Forma rapida)
 							auxc = '0';
 							aux = 0;
 							text = "";
@@ -476,22 +444,22 @@ public class PedroPerezPrueba {
 							//Mostrar texto pasado por parametro
 							System.out.print(string);
 							text = sc.nextLine();
-							text+=text+"   ";//Me aseguro que el string nunca sea de menos de 3 caracteres
+							text+=text+"    ";//Me aseguro que el string nunca sea de menos de 3 caracteres
 							opc1[0] = text.charAt(0);
 							opc1[1] = text.charAt(2);
-							
-							myString = String.valueOf(opc1);
-							aux = Integer.parseInt(myString);
 							
 							
 							if(text.charAt(1)!=' '){
 								v = false; 
-								System.out.println("¡opción fuera de rango! debes introducir: (fila columna)");
-							}else if (text.charAt(0)=='0'&&text.charAt(1)=='-'&&text.charAt(2)=='2') {
+								System.out.println("¡Opción fuera de rango! debes introducir: (fila columna)");
+							}else if (text.charAt(0)=='0'&&text.charAt(2)=='-'&&text.charAt(3)=='2') {
 								aux = -2;
 								//Rango Correcto
 								v = true;
 							}else {
+								myString = String.valueOf(opc1);
+								aux = Integer.parseInt(myString);
+								
 								if(aux<=4&&aux>=1) {
 									//Rango Correcto
 									v = true;
@@ -500,16 +468,16 @@ public class PedroPerezPrueba {
 									v = true;
 								}else {
 									v = false; 
-									System.out.println("¡opción fuera de rango! debes introducir: (fila columna)");
+									System.out.println("¡Opción fuera de rango! debes introducir: (fila columna)");
 								}
 							}
 					}catch(Exception j) {
 						v = false; 
-						System.out.println(j.getMessage());
+						//System.out.println(j.getMessage());
 					}
 				}catch (Exception e) {
 					System.out.println("¡Los caracteres introducidos no son validos!");
-					System.out.println(e.getMessage());
+					//System.out.println(e.getMessage());
 					sc.next();
 					v=false;
 				}
@@ -550,7 +518,7 @@ public class PedroPerezPrueba {
 					
 					//Si el rango no es correcto, repetimos el while
 					if(auxc<49||auxc>57) {
-						System.out.println("¡número fuera de rango! Debes introducir un nivel en el rango [1-9]");
+						System.out.println("¡Número fuera de rango! Debes introducir un nivel en el rango [1-9]");
 						v=false;
 						sc.next();
 					}
@@ -612,43 +580,42 @@ public class PedroPerezPrueba {
 	private static int interfaz(int[][] matrizTablero, int nivel, int cont, boolean verdadero, float []cal_level, String ultimaJugada) {
 		
 		DecimalFormat formateador = new DecimalFormat("0.00");
-		//Interfaz Basica del programa por consola, necesita el tablero y el nivel actual como parametro
-	
-		
+
+
 		
 		System.out.println();
 		System.out.println();
-		System.out.println("+----------------------------------------------------------------------------+");
-		System.out.println("| Recomenzar(01)  Nuevo(02)  Calificación(03)  Cambiar Nivel(04)  Salir(0-2) |");
-		System.out.println("|                                                                            |");
-		System.out.println("| Un golpe decrementar el valor de esa casilla en 1, y también los           |");
-		System.out.println("| valores de sus 4 vecinas. Objetivo: Dejar todas las casillas en '0'        |");
-		System.out.println("|                                                                            |");
-		System.out.println("|                     C 1   2   3   4   5   6 C                              |");
-		System.out.println("|                   F +-----------------------+                              |");
+		System.out.println("+---------------------------------------------------------------------------------+");
+		System.out.println("| Recomenzar(0 1)  Nuevo(0 2)  Calificación(0 3)  Cambiar Nivel(0 4)  Salir(0 -2) |");
+		System.out.println("|                                                                                 |");
+		System.out.println("| Un golpe decrementar el valor de esa casilla en 1, y también los                |");
+		System.out.println("| valores de sus 4 vecinas. Objetivo: Dejar todas las casillas en '0'             |");
+		System.out.println("|                                                                                 |");
+		System.out.println("|                         C 1   2   3   4   5   6 C                               |");
+		System.out.println("|                       F +-----------------------+                               |");
 		for (int i = 1; i <= 6; i++) {
-			System.out.println("|                   "+i
+			System.out.println("|                       "+i
 					+ " | "+matrizTablero[i][1]
 					+ " | "+matrizTablero[i][2]
 					+ " | "+matrizTablero[i][3]
 					+ " | "+matrizTablero[i][4]
 					+ " | "+matrizTablero[i][5]
 					+ " | "+matrizTablero[i][6]
-					+ " |                              |");
+					+ " |                               |");
 		}
-		System.out.println("|                   F +-----------------------+                              |");
-		System.out.println("|                                                                            |");
-		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"   |");
-		System.out.println("|                                                                            |");
-		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna): "+ultimaJugada+"      |");
-		System.out.println("|                                                                            |");
-		System.out.println("+----------------------------------------------------------------------------+");
+		System.out.println("|                       F +-----------------------+                               |");
+		System.out.println("|                                                                                 |");
+		System.out.println("| Nivel de juego: "+NombreNivel(nivel)+"          Puntuación en el nivel: "+formateador.format(cal_level[nivel])+"        |");
+		System.out.println("|                                                                                 |");
+		System.out.println("| Golpes realizados: "+cont+"                        Golpe (fila columna): "+ultimaJugada+"           |");
+		System.out.println("|                                                                                 |");
+		System.out.println("+---------------------------------------------------------------------------------+");
 		
 
 		int aux=0;
 		
 		if(verdadero==true) {
-			aux = getDato("Introduce jugada u opción del menú : ",1);
+			aux = getDato("Introduce jugada u opción del menú (fila columna): ",1);
 		}
 		
 		return aux;

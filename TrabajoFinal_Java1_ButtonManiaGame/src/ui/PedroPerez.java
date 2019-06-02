@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
 
 /**
  * Esta clase contiene el método principal del programa y otros métodos.
- * @author  Andrés Valdearcos Trenas, Elías Prieto Parrilla, Pedro Daniel Pérez Sánchez
+ * @author  Andrés Valdearcos Trenas, Elías Prieto Parrilla, David García Bermejo, Pedro Daniel Pérez Sánchez
  * @version 03/06/2019
  */
 

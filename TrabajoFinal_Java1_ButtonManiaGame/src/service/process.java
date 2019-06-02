@@ -13,8 +13,8 @@ import java.text.DecimalFormat;
 
 /**
  * Esta clase contiene métodos de comprobación, guardado, generar y el de jugadas. 
- * @author Andrés Valdearcos Trenas, Elías Prieto Parrilla, Pedro Daniel Pérez Sánchez
- * @version 02/06/2019
+ * @author Andrés Valdearcos Trenas, Elías Prieto Parrilla, David García Bermejo, Pedro Daniel Pérez Sánchez
+ * @version 03/06/2019
  *
  */
 public class process {
