@@ -1,24 +1,30 @@
-/*Andrés Valdearcos Trenas*/
-/*Pedro Daniel Pérez Sánchez*/
-/*Elías Prieto Parrilla*/
-/**/
+/* Valdearcos Trenas, Andrés */
+/* Pérez Sánchez, Pedro Daniel */
+/* Prieto Parrilla, Elías */
+/*David*/
+
 
 package service;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.DecimalFormat;
+
+
+/**
+ * Esta clase contiene métodos de comprobación, guardado, generar y el de jugadas. 
+ * @author Andrés Valdearcos Trenas, Elías Prieto Parrilla, Pedro Daniel Pérez Sánchez
+ * @version 02/06/2019
+ *
+ */
 public class process {
 	
-	/*
-	 * Entradas
-	 * 		-> Void
-	 * Salida
-	 * 		-> int[][] matriz
-	 * Descripci�n
-	 * 		-> Genera un tablero relleno de 0
-	 * 
+	
+	/**
+	 * Método que genera el tablero relleno de 0s.
+	 * @return El tablero con la matríz rellena de 0s.
 	 */
+	
 	
 	public static int[][] generarMatriz() {
 
@@ -33,6 +39,14 @@ public class process {
 		return matriz;
 	}
 	
+	
+	/**
+	 * Método que resetea todos los valores del tablero a 0.
+	 * @param matriz El tablero a resetear.
+	 * @return El tablero con la matríz reseteada.
+	 */
+	
+	
 	private static int[][] generarMatriz(int[][] matriz) {
 		
 		for (int i = 0; i < matriz.length; i++) {
@@ -44,6 +58,18 @@ public class process {
 		return matriz;
 	}
 
+	
+	/**
+	 * Método que genera de forma inversa (dado un golpe incrementa el valor de las casillas) una partida con los mismos golpes siempre.
+	 * Dichos golpes son los siguientes: 
+	 * 			int nivel_fil[] = {1,5,6,3,3,3,3,1,2,3,5,6,1,2,3,4,5,6,1,2,4,6,5,2,3,4,1};
+				int nivel_col[] = {3,4,2,4,4,4,4,3,4,6,3,2,1,4,5,6,3,1,2,3,4,5,6,3,2,6,5};
+	 * @param matriz El tablero a rellenar.
+	 * @param nivel El nivel de juego del tablero actual.
+	 * @return El tablero generado de forma NO aleatoria dependiendo del nivel recibido.
+	 */
+	
+	
 	public static int[][] generarPartidaPruebas(int[][] matriz, int nivel) {
 		
 		generarMatriz(matriz);
@@ -95,16 +121,14 @@ public class process {
 		
 	}
 	
-	/*
-	 * Entradas
-	 * 		-> int nivel
-	 * 		-> int[][] matriz
-	 * Salida
-	 * 		-> int[][] matriz
-	 * Descripci�n
-	 * 		-> Genera de forma aleatoria de una en una posici�n para hacer el juego de forma inversa seg�n el nivel que recibe
-	 * 
+	
+	/**
+	 * Método que genera de forma inversa (dado un golpe incrementa el valor de las casillas) una partida de forma aleatoria.
+	 * @param matriz El tablero a rellenar.
+	 * @param nivel El nivel de juego del tablero actual.
+	 * @return El tablero generado de forma aleatoria dependiendo del nivel recibido.
 	 */
+	
 	
 	public static int[][] generarPartida(int[][] matriz, int nivel) {
 		
@@ -155,26 +179,13 @@ public class process {
 		
 	}
 	
-	/*
-	 * Entradas
-	 * 		-> int posicion jugada
-	 * Salida
-	 * 		-> void
-	 * Descripci�n
-	 * 		-> Simula la jugada del jugador sobre el tablero
-	 * 
-	 */
-		
 
-	/*
-	 * Entradas
-	 * 		-> int[][] matrizTablero
-	 * Salida
-	 * 		-> boolean victoria
-	 * Descripci�n
-	 * 		-> Indica si el juego ha finalizado o no
-	 * 
+	/**
+	 * Método que comprueba si se ha ganado o no.
+	 * @param matrizTablero El tablero con el golpe realizado.
+	 * @return Devuelve un booleano que si es true, ha ganado y si es false, no ha ganado todavía.
 	 */
+	
 	
 	public static boolean comprobarVictoria(int [][] matrizTablero) {
 		
@@ -192,15 +203,13 @@ public class process {
 		
 	}
 
-	/*
-	 * Entradas
-	 * 		-> int posicion jugada
-	 * Salida
-	 * 		-> void
-	 * Descripci�n
-	 * 		-> Simula la jugada del jugador sobre el tablero
-	 * 
+
+	/**
+	 * Método que simula la jugada del usuario sobre el tablero.
+	 * @param opc El golpe realizado.
+	 * @param matrizTablero El tablero con el golpe realizado.
 	 */
+	
 	
 	public static void jugarFicha(int opc, int[][] matrizTablero) {
 			
@@ -251,6 +260,11 @@ public class process {
 		}
 
 	
+	/**
+	 * Método que borra las calificaciones de todos los niveles. 
+	 * @param calificacionNivel Todas las calificaciones de todos los niveles.
+	 */
+	
 	public static void borrarCalificaciones (float[] calificacionNivel) {
 		
 		for(int i=0; i<calificacionNivel.length;i++) {
@@ -260,7 +274,14 @@ public class process {
 		}
 		
 	}
-
+	
+	
+	/**
+	 * Método que guarda todas las calificaciones de todos los niveles en el fichero.
+	 * @param jugador El nombre del usuario que ha jugado la partida.
+	 * @param calificacionNivel La califación obtenida en cada nivel.
+	 */
+	
 	
 	public static void guardarCalificaciones(String jugador, float[] calificacionNivel) {
 		

@@ -1,6 +1,6 @@
-/*Andrés Valdearcos Trenas*/
-/*Pedro Daniel Pérez Sánchez*/
-/*Elías Prieto Parrilla*/
+/* Valdearcos Trenas, Andrés */
+/* Pérez Sánchez, Pedro Daniel */
+/* Prieto Parrilla, Elías */
 /*David*/
 
 
@@ -9,8 +9,23 @@ package ui;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
-public class consolePrueba {
+
+/**
+ * Esta clase es la clase de pruebas del juego.
+ * @author  Andrés Valdearcos Trenas, Elías Prieto Parrilla, Pedro Daniel Pérez Sánchez
+ * @version 03/06/2019
+ */
+
+public class PedroPerezPrueba {
 	public static Scanner sc= new Scanner (System.in);
+	
+
+	/**
+	 * Este método es el principal en el que transcurre la ejecución del programa.
+	 * @param args : argumentos que se le puede pasar. En este caso, no le pasamos.
+	 */
+	
+	
 	public static void main(String[] args) {
 		
 		//Declaraci�nes del main
@@ -276,6 +291,18 @@ public class consolePrueba {
 	
 	}
 
+	/**
+	 * Método que genera una nueva partida llamando al método generarPartidaPruebas.
+	 * La partida se genera forzosamente con las siguientes posiciones:
+	 * 				int nivel_fil[] = {1,5,6,3,3,3,3,1,2,3,5,6,1,2,3,4,5,6,1,2,4,6,5,2,3,4,1};
+					int nivel_col[] = {3,4,2,4,4,4,4,3,4,6,3,2,1,4,5,6,3,1,2,3,4,5,6,3,2,6,5};
+	 * @param nivel Lo pasamos para que genere una nueva partida de dicho nivel.
+	 * @param matriz con esta matriz hacemos que se establezca a 0 todas las filas y columnas de la matriz.
+	 * @param matrizTableroCopia para copiar en la matriz la nueva matriz obtenida aleatoriamente.
+	 * @return la matriz obtenida aleatoriamente para trabajar sobre ella.
+	 */
+	
+	
 	private static int[][] generarNuevaPartida(int nivel, int[][] matriz, int[][] matrizTableroCopia) {
 		int[][] matrizTablero;
 		matrizTablero = service.process.generarPartidaPruebas(matriz, nivel);
@@ -288,6 +315,13 @@ public class consolePrueba {
 		return matrizTablero;
 	}
 
+	
+	/**
+	 * Guarda (o no) todas las calificaciones de todos los niveles obtenidas durante la partida. 
+	 * @param calificacionNivel Las calificaciones obtenidas durante la partida.
+	 */
+	
+	
 	private static void guardarCalificacionTablero(float[] calificacionNivel) {
 		String jugador;
 		int opc;
@@ -306,7 +340,14 @@ public class consolePrueba {
 		}
 	}
 	
-	// Metodo que devuelve el string introducido por el usuario en la consola
+	
+	/**
+	 * Método que comprueba si el dato que recibe (el nombre para guardar la partida) es correcto.
+	 * @param string El nombre para guardar la partida.
+	 * @return El nombre para poder guardar las calificaciones. 
+	 */
+	
+	
 	private static String getDato(String string) {
 		
 		//El metodo devuelve el string introducido por el usuario en la consola
@@ -350,7 +391,18 @@ public class consolePrueba {
 		return auxs;
 	}
 
-	// Metodo de utilidad que devuelve varios enteros seg�n el parametro que se le pase
+
+	/**
+	 * Método que según el parámetro que se pase, valida para la interfaz del juego.
+	 * @param string Palabras que recibe la línea de texto para cada caso.
+	 * @param parametro Cuando es un 1, verifica si se introduce bien o no la fila y columna del golpe realizado.
+	 * 					Cuando es un 2, verifica que si se introduce bien el rango de salir o no. 
+	 * 					Cuando es un 3, verifica que el rango del cambio de nivel es correcto.
+	 * 					Cuando es un 4, verifica para que se meta bien el rango de guardar o no guardar. 
+	 * @return La opción ya verificada en su rango correcto. 
+	 */
+	
+	
 	private static int getDato(String string, int parametro) {
 		
 		
@@ -524,7 +576,19 @@ public class consolePrueba {
 		return aux;
 	}
 
-	//Interfaz Basica del programa por consola, necesita el tablero y el nivel actual como parametro
+	
+	/**
+	 * Método que muestra la interfaz en consola.
+	 * @param matrizTablero Pinta el tablero del juego.
+	 * @param nivel El que estamos jugando actualmente en el tablero.
+	 * @param cont El número de golpes que llevamos durante el tablero. 
+	 * @param verdadero Es un true cuando es un golpe y es un false cuando se ha ganado. 
+	 * @param cal_level La calificación que llevamos en el tablero.
+	 * @param ultimaJugada El último golpe realizado en el anterior turno. 
+	 * @return El golpe realizado u la opción.
+	 */
+	
+	
 	private static int interfaz(int[][] matrizTablero, int nivel, int cont, boolean verdadero, float []cal_level, String ultimaJugada) {
 		
 		DecimalFormat formateador = new DecimalFormat("0.00");
@@ -569,6 +633,13 @@ public class consolePrueba {
 		
 		return aux;
 	}
+	
+	
+	/**
+	 * Método que contiene los nombres de cada nivel.
+	 * @param level El nivel actual sobre el que estamos jugando.
+	 * @return El nombre del nombre en el que estamos jugando. 
+	 */
 	
 	
 	private static String NombreNivel (int level) {
