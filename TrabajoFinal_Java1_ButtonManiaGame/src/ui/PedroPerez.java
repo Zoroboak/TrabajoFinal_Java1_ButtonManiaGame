@@ -188,7 +188,7 @@ public class PedroPerez {
 				
 			}
 
-			if(opcmenu==03){
+			if(opcmenu==3){
 				
 				for(int j = 0; j < nivelJugado.length;j++) {
 					if(nivelJugado[j] == false)
@@ -252,8 +252,8 @@ public class PedroPerez {
 				calificacionVisual[nivel]= 0.00f;
 				
 				opcmenu = 4;
-				mostrarMenu();
-				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil: ",3);
+				mostrarPosiblesNiveles();
+				opc = getDato("Escoge nuevo nivel (1-9), a mayor numero, más difícil (Ejemplo: 3): ",3);
 				nivel=opc; 
 				System.out.println("Se ha cambiado a nivel "+nivel+", correctamente");
 				System.out.println();
@@ -291,19 +291,19 @@ public class PedroPerez {
 	 */
 	
 	
-	public static void mostrarMenu () {
+	public static void mostrarPosiblesNiveles () {
 		System.out.println();
 		System.out.println("Niveles posibles: ");
 		System.out.println("------------------------------------------");
-		System.out.println("Para bebés (3 golpes)");
-		System.out.println("Aprendizaje (6 golpes)");
-		System.out.println("Simple (9 golpes)");
-		System.out.println("Casi normal (12 golpes)");
-		System.out.println("Normal (15 golpes)");
-		System.out.println("Difícil (18 golpes)");
-		System.out.println("Puto amo (21 golpes)");
-		System.out.println("Imposible (24 golpes)");
-		System.out.println("Diez en Progra (27 golpes)");
+		System.out.println("1 - Para bebés (3 golpes)");
+		System.out.println("2 - Aprendizaje (6 golpes)");
+		System.out.println("3 - Simple (9 golpes)");
+		System.out.println("4 - Casi normal (12 golpes)");
+		System.out.println("5 - Normal (15 golpes)");
+		System.out.println("6 - Difícil (18 golpes)");
+		System.out.println("7 - Puto amo (21 golpes)");
+		System.out.println("8 - Imposible (24 golpes)");
+		System.out.println("9 - Diez en Progra (27 golpes)");
 		System.out.println("------------------------------------------");
 		
 	}
@@ -392,7 +392,7 @@ public class PedroPerez {
 				}
 			}
 			catch(Exception e){
-				System.out.println("Â¡La palabra introducida no es valida!");
+				System.out.println("¡La palabra introducida no es valida!");
 				sc.next();
 				v=false;
 			}
@@ -473,11 +473,11 @@ public class PedroPerez {
 							}
 					}catch(Exception j) {
 						v = false; 
-						System.out.println(j.getMessage());
+						//System.out.println(j.getMessage());
 					}
 				}catch (Exception e) {
 					System.out.println("¡Los caracteres introducidos no son validos!");
-					System.out.println(e.getMessage());
+					//System.out.println(e.getMessage());
 					sc.next();
 					v=false;
 				}
@@ -615,7 +615,7 @@ public class PedroPerez {
 		int aux=0;
 		
 		if(verdadero==true) {
-			aux = getDato("Introduce jugada u opción del menú: ",1);
+			aux = getDato("Introduce jugada u opción del menú (fila columna): ",1);
 		}
 		
 		return aux;
