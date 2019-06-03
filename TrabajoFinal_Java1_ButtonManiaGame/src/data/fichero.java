@@ -6,7 +6,6 @@
 /* Pérez Sánchez, Pedro Daniel */
 /* García Bermejo, David  */
 /* Prieto Parrilla, Elías */
-/*David*/
 
 
 

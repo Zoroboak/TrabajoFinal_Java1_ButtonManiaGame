@@ -38,6 +38,7 @@ public class graphical extends javax.swing.JFrame {
 	
 	private int nivel = 5;
 	private int[][] matriz = service.process.generarMatriz();
+	private int[][] matrizCopia = service.process.generarMatriz();
 
 	
 	public graphical(){
@@ -47,6 +48,7 @@ public class graphical extends javax.swing.JFrame {
 	    ImageIcon ImageIcon = new ImageIcon(getClass().getResource("logo.png"));
         Image Image = ImageIcon.getImage();
         this.setIconImage(Image);
+        setResizable(false);
 		componentes();
 		
 		nuevaPartida();
@@ -58,6 +60,12 @@ public class graphical extends javax.swing.JFrame {
 		
 		service.process.generarPartida(matriz, nivel);
 		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz.length; j++) {
+				matrizCopia[i][j] = matriz[i][j];
+			}
+		}
+		
 		actualizarTablero();
 		
 	}
@@ -65,12 +73,20 @@ public class graphical extends javax.swing.JFrame {
 	
 	private void actualizarTablero() {
 		
-		int i = 1;
-		int j = 1;
-		int I = 1;
+//		int i = 1;
+//		int j = 1;
+//		int I = 1;
+//		//matriz[i][j]
+//		for (i = 1; i <= 6; i++) {
+//			for (j = 1; j <= 6; j++) {
+//				Tablero.get(I).setText(""+I);
+//				I++;
+//			}
+//		}
 		
-		for (i = 1; i <= 6; i++) {
-			for (j = 1; j <= 6; j++) {
+		int I = 1;
+		for (int i = 1; i < (matriz.length-1); i++) {
+			for (int j = 1; j < (matriz.length-1); j++) {
 				Tablero.get(I).setText(""+matriz[i][j]);
 				I++;
 			}
@@ -257,7 +273,13 @@ public class graphical extends javax.swing.JFrame {
 	private void lista_ActionPerformed(java.awt.event.ActionEvent evt, int opc){
 		switch(opc){
 			case 0:	// Recomenzar
-				System.out.println("Recomenzando: ");
+				//JOptionPane.showMessageDialog(getParent(), "Recomenzando: ");
+				for (int i = 0; i < matrizCopia.length; i++) {
+					for (int j = 0; j < matrizCopia.length; j++) {
+						matriz[i][j] = matrizCopia[i][j];
+					}
+				}
+				actualizarTablero();
 				
 			break;
 			
@@ -266,7 +288,7 @@ public class graphical extends javax.swing.JFrame {
 			break;
 			
 			case 2:	// Calificacion
-				System.out.println("Calificaciones: ");
+				JOptionPane.showMessageDialog(getParent(), "Calificaciones: Disponible en próximas Versiones");
 			
 			break;
 			
@@ -274,6 +296,7 @@ public class graphical extends javax.swing.JFrame {
 				String myLevel = JOptionPane.showInputDialog("Introduce un nuevo nivel");
 				try {
 					nivel = Integer.parseInt(myLevel);
+					nuevaPartida();
 				} catch (Exception e) {
 					nivel = 5;
 					nuevaPartida();
@@ -288,10 +311,130 @@ public class graphical extends javax.swing.JFrame {
 	
 	private void jugada_tablero(java.awt.event.ActionEvent evt, int pos) {
 		
-		pos+=2;
-		pos+=30;
+		int jugada_equivalente = 1;
 		
-		service.process.jugarFicha(pos, matriz);
+		switch (pos) {
+		case 1:
+			jugada_equivalente = 11;
+			break;
+		case 2:
+			jugada_equivalente = 12;
+			break;
+		case 3:
+			jugada_equivalente = 13;
+			break;
+		case 4:
+			jugada_equivalente = 14;
+			break;
+		case 5:
+			jugada_equivalente = 15;
+			break;
+		case 6:
+			jugada_equivalente = 16;
+			break;
+		case 7:
+			jugada_equivalente = 21;
+			break;
+		case 8:
+			jugada_equivalente = 22;
+			break;
+		case 9:
+			jugada_equivalente = 23;
+			break;
+		case 10:
+			jugada_equivalente = 24;
+			break;
+		case 11:
+			jugada_equivalente = 25;
+			break;
+		case 12:
+			jugada_equivalente = 26;
+			break;
+		case 13:
+			jugada_equivalente = 31;
+			break;
+		case 14:
+			jugada_equivalente = 32;
+			break;
+		case 15:
+			jugada_equivalente = 33;
+			break;
+		case 16:
+			jugada_equivalente = 34;
+			break;
+		case 17:
+			jugada_equivalente = 35;
+			break;
+		case 18:
+			jugada_equivalente = 36;
+			break;
+		case 19:
+			jugada_equivalente = 41;
+			break;
+		case 20:
+			jugada_equivalente = 42;
+			break;
+		case 21:
+			jugada_equivalente = 43;
+			break;
+		case 22:
+			jugada_equivalente = 44;
+			break;
+		case 23:
+			jugada_equivalente = 45;
+			break;
+		case 24:
+			jugada_equivalente = 46;
+			break;
+		case 25:
+			jugada_equivalente = 51;
+			break;
+		case 26:
+			jugada_equivalente = 52;
+			break;
+		case 27:
+			jugada_equivalente = 53;
+			break;
+		case 28:
+			jugada_equivalente = 54;
+			break;
+		case 29:
+			jugada_equivalente = 55;
+			break;
+		case 30:
+			jugada_equivalente = 56;
+			break;
+		case 31:
+			jugada_equivalente = 61;
+			break;
+		case 32:
+			jugada_equivalente = 62;
+			break;
+		case 33:
+			jugada_equivalente = 63;
+			break;
+		case 34:
+			jugada_equivalente = 64;
+			break;
+		case 35:
+			jugada_equivalente = 65;
+			break;
+		case 36:
+			jugada_equivalente = 66;
+			break;
+		
+		default:
+			break;
+		}
+		
+		
+		service.process.jugarFicha(jugada_equivalente, matriz);
+		
+		golpeFilaColumna = jugada_equivalente/10+" "+jugada_equivalente%10;
+		
+		golpefilacolumna.setText("<html><body>"
+				+ "<strong>Golpes (Fila Columna): <strong>"+golpeFilaColumna
+				+ "</body></html>");
 		
 		golpesRealizados++;
 		golpesrealizados.setText("<html><body>"
@@ -307,7 +450,12 @@ public class graphical extends javax.swing.JFrame {
 		actualizarTablero();
 		
 		if(service.process.comprobarVictoria(matriz)==true){
-			JOptionPane.showMessageDialog(null, "¡Ganaste!");
+			JOptionPane.showMessageDialog(null, "¡Genial! ¡Ganaste!");
+			
+			nivel++;
+			JOptionPane.showMessageDialog(null, "¡Bienvenido al nivel "+nivel+"!");
+			
+			nuevaPartida();
 		}
 
 	}
