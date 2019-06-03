@@ -288,12 +288,10 @@ public class graphical extends javax.swing.JFrame {
 	
 	private void jugada_tablero(java.awt.event.ActionEvent evt, int pos) {
 		
+		pos+=2;
+		pos+=30;
 		
 		service.process.jugarFicha(pos, matriz);
-		service.process.jugarFicha(pos+1, matriz);
-		service.process.jugarFicha(pos-1, matriz);
-		service.process.jugarFicha(pos+10, matriz);
-		service.process.jugarFicha(pos-10, matriz);
 		
 		golpesRealizados++;
 		golpesrealizados.setText("<html><body>"
