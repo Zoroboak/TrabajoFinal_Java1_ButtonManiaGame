@@ -1,8 +1,7 @@
 /* Valdearcos Trenas, Andrés */
 /* Pérez Sánchez, Pedro Daniel */
+/* García Bermejo, David  */
 /* Prieto Parrilla, Elías */
-/*David*/
-
 
 package ui;
 

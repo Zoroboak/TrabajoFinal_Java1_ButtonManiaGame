@@ -1,15 +1,19 @@
 /* Valdearcos Trenas, Andrés */
 /* Pérez Sánchez, Pedro Daniel */
+/* García Bermejo, David  */
 /* Prieto Parrilla, Elías */
-/*David*/
 
+
+/**
+ * Esta clase contiene el método principal del programa en modo grafico y otros métodos.
+ * @author  Andrés Valdearcos Trenas, Elías Prieto Parrilla, David García Bermejo, Pedro Daniel Pérez Sánchez
+ * @version 03/06/2019
+ */
 
 
 package ui;
 
 import java.awt.Image;
-import java.lang.reflect.GenericArrayType;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
