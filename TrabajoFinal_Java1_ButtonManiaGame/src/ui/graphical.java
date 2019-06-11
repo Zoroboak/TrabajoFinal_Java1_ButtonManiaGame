@@ -57,6 +57,7 @@ public class graphical extends javax.swing.JFrame {
 		
 		nuevaPartida();
 		
+		
 	}
 	
 	//Metodos que gestionan la partida

@@ -16,6 +16,7 @@ import java.text.DecimalFormat;
  */
 
 public class PedroPerez {
+	
 	public static Scanner sc= new Scanner (System.in);
 	
 	
